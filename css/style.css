@@ -35,6 +35,48 @@ body {
   }
 }
 
+@media (max-width: 800px) {
+  .menu-btn {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    position: relative;
+  }
+  .menu-btn span,
+  .menu-btn span::before,
+  .menu-btn span::after {
+    position: absolute;
+    top: 50%; margin-top: -1px;
+    left: 50%; margin-left: -10px;
+    width: 20px;
+    height: 2px;
+    background-color: #3d3030;
+  }
+  .menu-btn span::before,
+  .menu-btn span::after {
+    content: '';
+    display: block;
+    transition: 0.2s;
+  }
+  .menu-btn span::before {
+    transform: translateY(-5px);
+  }
+  .menu-btn span::after {
+    transform: translateY(5px);
+  }
+
+  .menu-btn--active span {
+    height: 0;
+  }
+  .menu-btn--active span:before {
+    transform: rotate(-45deg);
+  }
+  .menu-btn--active span:after {
+    transform: rotate(45deg);
+  }
+}
+
 .back-to-top {
   position: fixed;
   right: 150px;
@@ -149,7 +191,8 @@ body {
 @media (max-width: 800px) {
   .nav {
     padding: 0 20px;
-    margin: 20px 0 40px 0;
+    margin: 0px 0 40px 0;
+    position: relative;
   }
 }
 
@@ -166,6 +209,9 @@ body {
   text-align: center;
 }
 @media (max-width: 800px) {
+  .nav__logo {
+    margin-top: 20px;
+  }
   .nav__logo img {
     width: 70px;
     height: auto;
@@ -194,9 +240,25 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    align-items: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 20px;
     font-size: 26px;
     line-height: 36px;
+    background-color: white;
+    box-shadow: 0 5px 20px -6px #3d3030;
+    transition: .5s;
+    transform-origin: right center;
+    transform: translate(30%) scaleX(0);
+    opacity: 0;
+  }
+  .nav__list--active {
+    transform: translate(0%) scaleX(1);
+    opacity: 1;
   }
 }
 
@@ -208,6 +270,23 @@ body {
 @media (max-width: 800px) {
   .nav__list li {
     margin-right: 0;
+    margin-bottom: 10px;
+    min-width: 200px;
+    text-align: center;
+  }
+  .nav__list li:last-child {
+    margin: 0;
+  }
+  .nav__list li:after {
+    content: "";
+    height: 1px;
+    display: block;
+    margin-top: 15px;
+    background: #dbdbdb;
+  }
+  .nav__list li:last-child:after {
+    height: 0;
+    margin: 0;
   }
 }
 .nav__list li:last-child {
@@ -219,6 +298,11 @@ body {
 .nav__list li:active {
   opacity: .4;
   top: 2px;
+}
+
+.nav__menu-btn.menu-btn--active {
+  top: 20px;
+  align-self: flex-start;
 }
 
 .nav__contacts {
