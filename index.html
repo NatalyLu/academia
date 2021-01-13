@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
+    <meta data-n-head="ssr" data-hid="description" name="description" content="Подготовка к ЕГЭ/ОГЭ, математика, русский язык, физика, информатика. Контакты: +7(930)712-20-21 +7(987)752-55-68">
+    <meta data-n-head="ssr" data-hid="image" name="image" content="https://maximumtest.ru/imgs/logo.png">
     <title>Академия</title>
     <link href="css/style.css" type="text/css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
@@ -21,6 +23,9 @@
           <li><a href="#price">Услуги</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
+        <a href="#" class="nav__menu-btn menu-btn">
+          <span></span>
+        </a>
         <div class="nav__contacts">
           <div>
             Нижний Новгород,<br>ул. Героя Смирнова, д.2
@@ -178,7 +183,6 @@
       let mapLink = document.querySelector(".contacts__map-button");
       let mapPopup = document.querySelector(".modal-map");
       let mapClose = mapPopup.querySelector(".modal__close-map");
-      let btnToTop = document.querySelector(".back-to-top");
 
       mapLink.addEventListener("click", function (evt) {
         evt.preventDefault();
@@ -200,6 +204,7 @@
       });
 
       //---------- Кнопка "Наверх" ----------//
+      let btnToTop = document.querySelector(".back-to-top");
       window.onscroll = () => {
         if (window.scrollY > 700) {
           btnToTop.classList.remove('back-to-top--hidden');
@@ -208,10 +213,19 @@
         }
       };
 
-      btnToTop.onclick = () => {
+      btnToTop.addEventListener("click", function (evt) {
+        evt.preventDefault();
         window.scrollTo(0, 0);
-      }
-    </script>
+      });
 
+      //---------- Кнопка "Меню" ----------//
+      let menuButton = document.querySelector(".menu-btn");
+      menuButton.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        menuButton.classList.toggle("menu-btn--active");
+        document.querySelector(".nav__list").classList.toggle("nav__list--active");
+      });
+
+    </script>
   </body>
 </html>
