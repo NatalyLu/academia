@@ -136,6 +136,7 @@
           </div>
         </div>
       </section>
+      <a href="#" class="back-to-top back-to-top--hidden"></a>
     </main>
 
     <footer>
@@ -175,9 +176,10 @@
 
     <script>
       //------------- Карта ---------------//
-      var mapLink = document.querySelector(".contacts__map-button");
-      var mapPopup = document.querySelector(".modal-map");
-      var mapClose = mapPopup.querySelector(".modal__close-map");
+      let mapLink = document.querySelector(".contacts__map-button");
+      let mapPopup = document.querySelector(".modal-map");
+      let mapClose = mapPopup.querySelector(".modal__close-map");
+      let btnToTop = document.querySelector(".back-to-top");
 
       mapLink.addEventListener("click", function (evt) {
         evt.preventDefault();
@@ -197,6 +199,19 @@
           }
         }
       });
+
+      //---------- Кнопка "Наверх" ----------//
+      window.onscroll = () => {
+        if (window.scrollY > 700) {
+          btnToTop.classList.remove('back-to-top--hidden');
+        } else {
+          btnToTop.classList.add('back-to-top--hidden');
+        }
+      };
+
+      btnToTop.onclick = () => {
+        window.scrollTo(0, 0);
+      }
     </script>
 
   </body>

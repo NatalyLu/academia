@@ -11,6 +11,9 @@
 /* 28px */
 /* 32px */
 /* 50px */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -30,6 +33,58 @@ body {
     font-size: 38px;
     line-height: 46px;
   }
+}
+
+.back-to-top {
+  position: fixed;
+  right: 150px;
+  bottom: 50px;
+  width: 50px;
+  height: 50px;
+  border-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 0 #ed0e21;
+  background-color: #ed0e21;
+  z-index: 1000;
+}
+@media (max-width: 800px) {
+  .back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+  }
+}
+.back-to-top:hover,
+.back-to-top:focus {
+  filter: brightness(2);
+  width: 52px;
+  height: 52px;
+  outline: none;
+}
+.back-to-top:before,
+.back-to-top:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.back-to-top:before {
+  width: 5px;
+  height: 24px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background-color: white;
+}
+.back-to-top:after {
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-top: 5px solid white;
+  border-left: 5px solid white;
+}
+.back-to-top--hidden {
+  display: none;
 }
 
 
@@ -56,15 +111,17 @@ body {
   background-size: contain;
   opacity: .7;
 }
-.list-animation li:hover {
-  font-size: 32px;
-  transition: all .2s linear;
-}
-.list-animation li:hover:before {
-  width: 35px;
-  height: 35px;
-  opacity: 1;
-  transition: all .2s linear;
+@media (min-width: 1000px) {
+  .list-animation li:hover {
+    font-size: 32px;
+    transition: all .2s linear;
+  }
+  .list-animation li:hover:before {
+    width: 35px;
+    height: 35px;
+    opacity: 1;
+    transition: all .2s linear;
+  }
 }
 
 .visually-hidden {
@@ -474,12 +531,13 @@ body {
 .cart-back__description {
   line-height: 34px;
 }
-
-.tariffs__element:hover .cart-front {
-  transform: rotateY(180deg);
-}
-.tariffs__element:hover .cart-back {
-  transform: rotateY(360deg);
+@media (min-width: 1000px) {
+  .tariffs__element:hover .cart-front {
+    transform: rotateY(180deg);
+  }
+  .tariffs__element:hover .cart-back {
+    transform: rotateY(360deg);
+  }
 }
 
 .tariffs__title {
