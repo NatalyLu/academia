@@ -625,14 +625,6 @@ body {
   line-height: 34px;
 }
 
-@media (max-width: 1000px) {
-  .tariffs__element:active .cart-front {
-    transform: rotateY(180deg);
-  }
-  .tariffs__element:active .cart-back {
-    transform: rotateY(360deg);
-  }
-}
 @media (min-width: 1000px) {
   .tariffs__element:hover .cart-front {
     transform: rotateY(180deg);
