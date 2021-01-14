@@ -3,9 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="format-detection" content="telephone=no">
-    <meta data-n-head="ssr" data-hid="description" name="description" content="Подготовка к ЕГЭ/ОГЭ, математика, русский язык, физика, информатика. Контакты: +7(930)712-20-21 +7(987)752-55-68">
-    <meta data-n-head="ssr" data-hid="image" name="image" content="https://maximumtest.ru/imgs/logo.png">
+    <meta name="description" content="Подготовка к ЕГЭ/ОГЭ г.Нижний Новгород. Цены ниже, чем у репетиторов! Предметы: математика, русский язык, физика, информатика. Контакты: +7(930)712-20-21 +7(987)752-55-68">
+    <meta name="keywords" content="репетитор, егэ репетитор, подготовка к егэ репетитор,подготовка к егэ, подготовка к егэ нижний новгород, егэ, подготовка к егэ, учебный центр егэ, егэ нижний новгород, егэ репетитор, подготовка егэ математика нижний новгород, егэ математика, егэ математика нижний новгород, подготовка егэ математика, егэ физика, егэ физика нижний новгород, подготовка егэ физика нижний новгород, подготовка егэ физика, информатика репетитор, егэ информатика, подготовка егэ информатика, подготовка егэ информатика нижний новгород, егэ информатика нижний новгород, подготовка к огэ, огэ, огэ нижний новгород, подготовка к огэ нижний новгород,огэ математика, подготовка огэ математика нижний новгород, огэ математика нижний новгород, подготовка огэ математика, огэ физика, огэ физика нижний новгород, подготовка огэ физика нижний новгород, подготовка огэ физика, огэ информатика, подготовка огэ информатика, подготовка огэ информатика нижний новгород, огэ информатика нижний новгород">
+    <meta name="image" name="image" content="https://egenn.ru/img/logo.png">
+    <meta name="Author" content="Nataly Lu">
+    <meta name="Copyright" content="Nataly Lu">
+    <meta name="Address" content="natulya.lukashina@bk.ru">
+    <meta name="format-detection" content="telephone=yes">
     <title>Академия</title>
     <link href="css/style-min.css" type="text/css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
@@ -13,7 +17,7 @@
   <body>
     <header>
       <nav class="nav">
-        <a class="nav__logo">
+        <a class="nav__logo" href="#contacts">
           <img src="img/logo.png" width="116" height="100" alt="Логотип Аадемии">
           <span>Академия</span>
           <span>Центр подготовки к ЕГЭ/ОГЭ</span>
@@ -187,11 +191,13 @@
       mapLink.addEventListener("click", function (evt) {
         evt.preventDefault();
         mapPopup.classList.add("modal-show");
+        btnToTop.classList.add('back-to-top--hidden');
       });
 
       mapClose.addEventListener("click", function (evt) {
         evt.preventDefault();
         mapPopup.classList.remove("modal-show");
+        btnToTop.classList.remove('back-to-top--hidden');
       });
 
       window.addEventListener("keydown", function (evt) {
@@ -199,6 +205,7 @@
         if (evt.keyCode === 27) {
           if (mapPopup.classList.contains("modal-show")) {
             mapPopup.classList.remove("modal-show");
+            btnToTop.classList.remove('back-to-top--hidden');
           }
         }
       });
