@@ -13,6 +13,7 @@
 /* 50px */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   color: #3d3030;
   font-size: 16px;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .main-title {
@@ -38,8 +40,9 @@ body {
 @media (max-width: 800px) {
   .menu-btn {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
+    right: 15px;
     background-color: transparent;
     position: relative;
   }
@@ -48,9 +51,9 @@ body {
   .menu-btn span::after {
     position: absolute;
     top: 50%; margin-top: -1px;
-    left: 50%; margin-left: -10px;
-    width: 20px;
-    height: 2px;
+    left: 50%; margin-left: -25px;
+    width: 50px;
+    height: 3px;
     background-color: #3d3030;
   }
   .menu-btn span::before,
@@ -60,12 +63,22 @@ body {
     transition: 0.2s;
   }
   .menu-btn span::before {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
   }
   .menu-btn span::after {
-    transform: translateY(5px);
+    transform: translateY(10px);
   }
 
+  .menu-btn--active {
+    right: 0;
+  }
+  .menu-btn--active span,
+  .menu-btn--active span::before,
+  .menu-btn--active span::after {
+    width: 30px;
+    margin-left: -15px;
+    margin-top: -5px;
+  }
   .menu-btn--active span {
     height: 0;
   }
@@ -413,6 +426,7 @@ body {
   background-color: #fcf7e3;
   display: flex;
   min-height: 100vh;
+  padding: 50px 0;
 }
 @media (max-width: 800px) {
   .benefits__wrapper {
@@ -454,8 +468,8 @@ body {
 .benefits__img {
   height: auto;
   position: absolute;
-  right: -200px;
-  bottom: -100px;
+  right: -250px;
+  bottom: -50px;
   width: 580px;
   height: auto;
   z-index: -1;
@@ -465,7 +479,7 @@ body {
     width: 50vw;
     height: auto;
     right: -10vw;
-    bottom: -10vw;
+    bottom: 0vw;
   }
 }
 @media (max-width: 1000px) {
