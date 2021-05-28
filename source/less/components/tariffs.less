@@ -1,0 +1,76 @@
+.tariffs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  line-height: 32px;
+
+  @media (max-width: @big-tablet-width) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.tariffs__element {
+  width: 300px;
+  position: relative;
+  text-align: center;
+
+  @media (max-width: @big-tablet-width) {
+    margin-bottom: 30px;
+  }
+
+  &:last-child {
+    @media (max-width: @big-tablet-width) {
+      margin-bottom: 0;
+    }
+
+    .cart-front:after {
+      content: "*Цена указана за одно занятие";
+    }
+  }
+
+  &:hover {
+    top: -20px;
+
+    @media (max-width: @big-tablet-width) {
+      top: 0;
+    }
+
+    @media (min-width: @small-desctop-width) {
+      .cart-front {
+        transform: rotateY(180deg);
+      }
+      .cart-back {
+        transform: rotateY(360deg);
+      }
+    }
+  }
+}
+
+.tariffs__title {
+  display: block;
+  font-weight: 900;
+  margin-bottom: 50px;
+  font-size: 28px;
+}
+
+.tariffs__description {
+  margin: 0;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.tariffs__price {
+  display: block;
+  font-weight: 700;
+}
+
+.tariffs__price b {
+  font-size: 26px;
+  font-weight: 900;
+}
