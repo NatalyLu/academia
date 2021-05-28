@@ -1,0 +1,53 @@
+.cart-front,
+.cart-back {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0 10px 20px -6px #3d3030;
+  box-sizing: border-box;
+  transition: .7s;
+  backface-visibility: hidden;
+}
+
+.cart-front {
+  position: relative;
+  background: no-repeat url("./../img/books.jpg") bottom;
+  background-size: 84%;
+  padding: 30px 30px 70px 30px;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #ffffff;
+    opacity: .85;
+    z-index: -1;
+  }
+
+  &:after {
+    content: "*Цена указана за месяц обучения";
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.cart-back {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcf7e3;
+  transform: rotateY(180deg);
+}
+
+.cart-back__description {
+  line-height: 34px;
+}

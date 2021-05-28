@@ -1,0 +1,21 @@
+.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 960px;
+  margin: auto;
+  margin-bottom: 60px;
+  min-height: calc(100vh - 60px); /*60px = price margin-bottom*/
+
+  @media (max-width: @tablet-width) {
+    margin-bottom: 50px;
+    padding: 0 20px;
+  }
+}
+
+.price__title {
+  margin: 0 0 60px 0;
+  @media (max-width: @tablet-width) {
+    margin-bottom: 40px;
+  }
+}
