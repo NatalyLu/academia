@@ -10,6 +10,7 @@ const imagemin = require("gulp-imagemin");
 const webp = require("gulp-webp");
 const svgstore = require("gulp-svgstore");
 const htmlmin = require("gulp-htmlmin");
+const terser = require("gulp-terser");
 const sync = require("browser-sync").create();
 const del= require('del');
 
@@ -159,6 +160,7 @@ const build = gulp.series(
   gulp.parallel(
     styles,
     html,
+    scripts,
     sprite,
     createWebp
   ),
@@ -175,6 +177,7 @@ exports.default = gulp.series(
   gulp.parallel(
     styles,
     html,
+    scripts,
     sprite,
     createWebp
   ),
