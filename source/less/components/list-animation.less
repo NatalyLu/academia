@@ -2,14 +2,62 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 2.429rem;
+
+  @media (min-width: @tablet-width) {
+    font-size: 2rem;
+    line-height: 2.429rem;
+  }
+
+  @media (min-width: @small-desctop-width) {
+    font-size: 2.4rem;
+    line-height: 2.95rem;
+  }
 }
 
 .list-animation li {
+  display: block;
   position: relative;
-  padding-left: 50px;
+  padding-left: 45px;
   margin-bottom: 20px;
+
+  @media (min-width: @tablet-width) {
+    padding-left: 50px;
+    margin-bottom: 30px;
+
+    &:hover {
+      font-size: 2.34rem;
+      transition: all .2s linear;
+
+      a {
+        background-size: 100% 2px;
+      }
+
+      &:before {
+        width: 36px;
+        height: 36px;
+        opacity: 1;
+        transition: all .2s linear;
+      }
+    }
+
+    @media (min-width: @small-desctop-width) {
+      padding-left: 60px;
+
+      &:hover {
+        font-size: 2.6rem;
+
+        &:before {
+          width: 42px;
+          height: 42px;
+          top: calc(50% - 21px);
+          opacity: 1;
+          transition: all .2s linear;
+        }
+      }
+    }
+  }
 
   &:before {
     content: '';
@@ -22,7 +70,16 @@
     background-size: contain;
 
     @media (min-width: @tablet-width) {
+      width: 34px;
+      height: 34px;
+      top: calc(50% - 18px);
       opacity: @hover-opacity;
+    }
+
+    @media (min-width: @small-desctop-width) {
+      width: 38px;
+      height: 38px;
+      top: calc(50% - 20px);
     }
   }
 
@@ -35,24 +92,6 @@
 
     @media (min-width: @tablet-width) {
       background-size: 0% 2px;
-    }
-  }
-
-  @media (min-width: @tablet-width) {
-    &:hover {
-      font-size: 2.286rem;
-      transition: all .2s linear;
-
-      a {
-        background-size: 100% 2px;
-      }
-    }
-
-    &:hover:before {
-      width: 35px;
-      height: 35px;
-      opacity: 1;
-      transition: all .2s linear;
     }
   }
 }
