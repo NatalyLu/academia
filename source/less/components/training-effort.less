@@ -4,7 +4,7 @@
   align-items: center;
   max-width: 1000px;
   padding: 0 20px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 
   @media (min-width: @tablet-width) {
     display: grid;
@@ -14,17 +14,16 @@
       "picture list";
       gap: 40px 0;
     padding: 0;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 80px auto;
   }
 
   @media (min-width: @small-desctop-width) {
     grid-template-columns: 1fr 400px;
   }
 
-  span.main-title {
-    @media (max-width: @tablet-width) {
-      margin-bottom: 30px;
-    }
+  @media (min-width: @desctop-width) {
+    gap: 60px 0;
+    margin-bottom: 140px;
   }
 }
 
@@ -38,6 +37,7 @@
 }
 
 .training-effort__img {
+  display: block;
   width: 100%;
   max-width: 600px;
   height: auto;
@@ -45,6 +45,7 @@
 
   @media (min-width: @tablet-width) {
     grid-area: picture;
+    margin-bottom: 0;
     z-index: -2;
   }
 }
@@ -59,7 +60,8 @@
   }
 
   .sub-title {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+
     @media (min-width: @tablet-width) {
       margin-bottom: 40px;
     }
