@@ -11,10 +11,14 @@
 }
 
 .cart-front {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
   position: relative;
   background: no-repeat url("./../img/books.jpg") bottom;
   background-size: 84%;
-  padding: 30px 30px 70px 30px;
+  padding: 20px 20px 70px 20px;
   z-index: 1;
 
   &:before {
@@ -31,7 +35,7 @@
 
   &:after {
     content: "*Цена указана за месяц обучения";
-    font-size: 1rem;
+    font-size: .7rem;
     width: 100%;
     position: absolute;
     bottom: 0;

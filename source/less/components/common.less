@@ -31,10 +31,34 @@ body {
   line-height: 2.86rem;
   text-align: center;
   font-weight: 700;
+  margin: 0;
 
   @media (min-width: @tablet-width) {
     font-size: 3rem;
     line-height: 3.57rem;
+  }
+
+  @media (min-width: @small-desctop-width) {
+    font-size: 3.34rem;
+    line-height: 4rem;
+  }
+}
+
+.sub-title {
+  font-size: 2rem;
+  line-height: 2.86rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+
+  @media (min-width: @tablet-width) {
+    font-size: 2.534rem;
+    line-height: 3rem;
+  }
+
+  @media (min-width: @small-desctop-width) {
+    font-size: 3.34rem;
+    line-height: 4rem;
   }
 }
 
@@ -52,17 +76,3 @@ body {
   }
   100% { transform: rotate(0deg); }
 }
-
-// @keyframes bigger {
-//   0% {
-//     transform: scale(1);
-//   }
-//   50% {
-//     transform: scale(1.2);
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// }
-
-

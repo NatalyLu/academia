@@ -1,49 +1,93 @@
-      //------------- Карта ---------------//
-      let mapLink = document.querySelector(".contacts__map-button");
-      let mapPopup = document.querySelector(".modal-map");
-      let mapClose = mapPopup.querySelector(".modal__close-map");
+// ------------- Карта ---------------
 
-      mapLink.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        mapPopup.classList.add("modal-show");
-        btnToTop.classList.add('back-to-top--hidden');
-      });
+let mapLink = document.querySelector(".contacts__map-button");
+let mapPopup = document.querySelector(".modal-map");
+let mapClose = mapPopup.querySelector(".modal__close-map");
 
-      mapClose.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        mapPopup.classList.remove("modal-show");
-        btnToTop.classList.remove('back-to-top--hidden');
-      });
+let ENTER_KEY = "Enter";
+let ESC_KEY = "Escape";
 
-      window.addEventListener("keydown", function (evt) {
-        evt.preventDefault();
-        if (evt.keyCode === 27) {
-          if (mapPopup.classList.contains("modal-show")) {
-            mapPopup.classList.remove("modal-show");
-            btnToTop.classList.remove('back-to-top--hidden');
-          }
-        }
-      });
+let mapEscPressHandler = (evt) => {
+  if (evt.key === ESC_KEY) {
+    closeMap();
+  }
+}
 
-      //---------- Кнопка "Наверх" ----------//
-      let btnToTop = document.querySelector(".back-to-top");
-      window.onscroll = () => {
-        if (window.scrollY > 700) {
-          btnToTop.classList.remove('back-to-top--hidden');
-        } else {
-          btnToTop.classList.add('back-to-top--hidden');
-        }
-      };
+let openMap = () => {
+  mapPopup.classList.add("modal-show");
+  btnToTop.classList.add("back-to-top--hidden");
+  document.addEventListener("keydown", mapEscPressHandler);
+}
 
-      btnToTop.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        window.scrollTo(0, 0);
-      });
+let closeMap = () => {
+  mapPopup.classList.remove("modal-show");
+  btnToTop.classList.remove("back-to-top--hidden");
+  document.removeEventListener("keydown", mapEscPressHandler);
+}
 
-      //---------- Кнопка "Меню" ----------//
-      let menuButton = document.querySelector(".menu-btn");
-      menuButton.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        menuButton.classList.toggle("menu-btn--active");
-        document.querySelector(".nav__list").classList.toggle("nav__list--active");
-      });
+mapLink.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  openMap();
+});
+
+mapLink.addEventListener("keydown", (evt) => {
+  if (evt.key === ENTER_KEY) {
+    openMap();
+  }
+});
+
+mapClose.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  closeMap();
+});
+
+mapClose.addEventListener("keydown", (evt) => {
+  evt.preventDefault();
+  if (evt.key === ENTER_KEY) {
+    closeMap();
+  }
+});
+
+
+//---------- Кнопка "Наверх" ----------//
+let btnToTop = document.querySelector(".back-to-top");
+window.onscroll = () => {
+  if (window.scrollY > 700) {
+    btnToTop.classList.remove("back-to-top--hidden");
+  } else {
+    btnToTop.classList.add("back-to-top--hidden");
+  }
+};
+
+btnToTop.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  window.scrollTo(0, 0);
+});
+
+btnToTop.addEventListener("keydown", (evt) => {
+  evt.preventDefault();
+  if (evt.key === ENTER_KEY) {
+    window.scrollTo(0, 0);
+  }
+});
+
+
+//---------- Кнопка "Меню" ----------//
+let menuButton = document.querySelector(".menu-btn");
+
+let toggleMenu = () => {
+  menuButton.classList.toggle("menu-btn--active");
+  document.querySelector(".nav__list").classList.toggle("nav__list--active");
+}
+
+menuButton.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  toggleMenu();
+});
+
+menuButton.addEventListener("keydown", (evt) => {
+  evt.preventDefault();
+  if (evt.key === ENTER_KEY || evt.key === ESC_KEY) {
+    toggleMenu();
+  }
+});
