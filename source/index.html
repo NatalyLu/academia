@@ -111,7 +111,11 @@
               <span class="tariffs__price">Стоимость: <b>2500р.</b></span>
             </div>
             <div class="cart-back">
-              <p class="tariffs__description cart-back__description">Телефоны для связи: +7(930)712-20-21 +7(987)752-55-68</p>
+              <p class="tariffs__description">
+                Телефоны для связи:
+              </p>
+              <a class="tariffs__number" href="tel:{+7(930)712-20-21}" aria-label="Наш телефон 1">+7(930)712-20-21</a>
+              <a class="tariffs__number" href="tel:{+7(987)752-55-68}" aria-label="Наш телефон 2">+7(987)752-55-68</a>
             </div>
           </li>
           <li class="tariffs__element">
@@ -121,17 +125,25 @@
               <span class="tariffs__price">Стоимость: <b>4500р.</b></span>
             </div>
             <div class="cart-back">
-              <p class="tariffs__description cart-back__description">Телефоны для связи: +7(930)712-20-21 +7(987)752-55-68</p>
+              <p class="tariffs__description">
+                Телефоны для связи:
+              </p>
+              <a class="tariffs__number" href="tel:{+7(930)712-20-21}" aria-label="Наш телефон 1">+7(930)712-20-21</a>
+              <a class="tariffs__number" href="tel:{+7(987)752-55-68}" aria-label="Наш телефон 2">+7(987)752-55-68</a>
             </div>
           </li>
           <li class="tariffs__element">
             <div class="cart-front">
               <span class="tariffs__title">Персональный подход</span>
-              <p class="tariffs__description">Индивидуальные занятия от 1 раза в неделю.</p>
+              <p class="tariffs__description">Индивидуальные занятия от 1 раза в неделю</p>
               <span class="tariffs__price">Стоимость: <b>1200р.</b></span>
             </div>
             <div class="cart-back">
-              <p class="tariffs__description cart-back__description">Телефоны для связи: +7(930)712-20-21 +7(987)752-55-68</p>
+              <p class="tariffs__description">
+                Телефоны для связи:
+              </p>
+              <a class="tariffs__number" href="tel:{+7(930)712-20-21}" aria-label="Наш телефон 1">+7(930)712-20-21</a>
+              <a class="tariffs__number" href="tel:{+7(987)752-55-68}" aria-label="Наш телефон 2">+7(987)752-55-68</a>
             </div>
           </li>
         </ul>
@@ -141,13 +153,15 @@
         <div class="contacts__wrapper">
           <h1 class="main-title contacts__title">Наш адрес</h1>
           <p class="contacts__adress">Нижний Новгород, ул. Героя Смирнова, д.2 (БЦ "Союз")</p>
-
-          <a href="#" class="contacts__map contacts__map-button">
-            <picture>
+          <div class="contacts__map">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A24c65c501ce7879fcaf000a94ddb4fedba6bc1083f4efa562d6c35e180ac581c&amp;source=constructor" width="1100" height="500" frameborder="0"></iframe>
+          </div>
+          <!-- <a href="#" class="contacts__map contacts__map-button"> -->
+            <!-- <picture>
               <source media="(max-width: 800px)" srcset="img/map-mobile.png">
               <img src="img/map.png" width="960" height="500" alt="Карта">
-            </picture>
-          </a>
+            </picture> -->
+          <!-- </a> -->
 
           <div class="contacts__links">
             <span class="contacts__numbers">
@@ -190,13 +204,6 @@
         <b>Сделано с любовью by Nataly_Lu </b>
       </p>
     </footer>
-
-    <!------------ Карта -------------->
-    <section class="modal-map">
-      <h2 class="visually-hidden">Как до нас добраться</h2>
-      <button class="modal__close modal__close-map" type="button">Закрыть</button>
-      <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aee5087b1157162fc4734390149cd5d2488cfb0a49808f2ae71403f3a0537402d&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
-    </section>
     <script src="js/script.min.js"></script>
   </body>
 </html>

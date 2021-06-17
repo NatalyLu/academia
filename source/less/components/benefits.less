@@ -9,7 +9,7 @@
     margin-bottom: 80px;
   }
 
-  @media (min-width: @desctop-width) {
+  @media (min-width: @desktop-width) {
     font-size: 2rem;
     line-height: 3rem;
     margin-bottom: 140px;
@@ -17,18 +17,25 @@
 }
 
 .benefits__text {
-  text-align: left;
+  font-size: 1.2rem;
+  text-align: center;
   padding: 0 20px;
-  max-width: 900px;
+  max-width: @container-max-width;
   margin: 0 auto 80px auto;
 
   @media (min-width: @tablet-width) {
+    font-size: 1.4rem;
     text-align: center;
   }
 
-  @media (min-width: @desctop-width) {
-    padding: 0;
+  @media (min-width: @small-desktop-width) {
+    font-size: 2.2rem;
+    line-height: 3.2rem;
     margin-bottom: 140px;
+  }
+
+  @media (min-width: @desktop-width) {
+    padding: 0;
   }
 }
 
@@ -43,14 +50,14 @@
     padding: 80px 20px;
   }
 
-  @media (min-width: @small-desctop-width) {
+  @media (min-width: @small-desktop-width) {
     background-image: url("/img/test_yellow1.jpg");
     background-size: 800px auto;
     background-repeat: no-repeat;
     background-position: bottom -100px right calc(50% - 360px);
   }
 
-  @media (min-width: @desctop-width) {
+  @media (min-width: @desktop-width) {
     padding: 140px 20px;
   }
 
@@ -62,7 +69,7 @@
       margin-bottom: 60px;
     }
 
-    @media (min-width: @desctop-width) {
+    @media (min-width: @desktop-width) {
       margin-bottom: 80px;
     }
   }
@@ -73,11 +80,11 @@
   box-sizing: border-box;
   display: block;
 
-  @media (max-width: @small-desctop-width - 1px) {
+  @media (max-width: @small-desktop-width - 1px) {
     align-self: center;
   }
 
-  @media (min-width: @small-desctop-width) {
+  @media (min-width: @small-desktop-width) {
     min-width: 860px;
     width: 100%;
   }
@@ -101,7 +108,7 @@
       color: @dark-text-color;
       text-decoration: none;
 
-      @media (max-width: @small-desctop-width - 1px) {
+      @media (max-width: @small-desktop-width - 1px) {
         background-image: none;
       }
     }
