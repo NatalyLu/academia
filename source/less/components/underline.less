@@ -1,0 +1,16 @@
+.underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: background-size .3s;
+  transition: all .2s linear;
+
+  @media (min-width: @small-desktop-width) {
+    background-size: 0% 2px;
+  }
+}
+
+.underline__hover {
+  background-size: 100% 2px;
+}

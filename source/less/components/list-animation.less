@@ -29,23 +29,6 @@
 
   @media (min-width: @small-desktop-width) {
     padding-left: 60px;
-
-    &:hover {
-      font-size: 2.4rem;
-      transition: all .2s linear;
-
-      a {
-        background-size: 100% 2px;
-      }
-
-      &:before {
-        width: 42px;
-        height: 42px;
-        top: calc(50% - 21px);
-        opacity: 1;
-        transition: all .2s linear;
-      }
-    }
   }
 
   &:before {
@@ -72,16 +55,27 @@
     }
   }
 
-  a {
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 100% 1px;
-    transition: background-size .3s;
-
+  &:hover,
+  &:active {
     @media (min-width: @small-desktop-width) {
-      background-size: 0% 2px;
+      font-size: 103%;
+
+      a {
+        .underline__hover();
+      }
+
+      &:before {
+        width: 42px;
+        height: 42px;
+        top: calc(50% - 21px);
+        opacity: 1;
+        transition: all .2s linear;
+      }
     }
+  }
+
+  a {
+    .underline();
   }
 
   &:last-child {
