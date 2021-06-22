@@ -1,41 +1,42 @@
 .benefits {
   font-size: 1.4rem;
   line-height: 2.2rem;
-  margin-bottom: 60px;
+  margin-bottom: @vertical-indent-mobile;
 
   @media (min-width: @tablet-width) {
     font-size: 1.6rem;
     line-height: 2.8rem;
-    margin-bottom: 80px;
+    margin-bottom: @vertical-indent-tablet ;
   }
 
   @media (min-width: @desktop-width) {
     font-size: 2rem;
     line-height: 3rem;
-    margin-bottom: 140px;
+    margin-bottom: @vertical-indent-desktop;
   }
 }
 
 .benefits__text {
   font-size: 1.2rem;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 @horizontal-indent;
   max-width: @container-max-width;
-  margin: 0 auto 80px auto;
+  margin: 0 auto @vertical-indent-mobile auto;
 
   @media (min-width: @tablet-width) {
     font-size: 1.4rem;
     text-align: center;
+    margin: 0 auto @vertical-indent-tablet auto;
   }
 
   @media (min-width: @small-desktop-width) {
     font-size: 2.2rem;
     line-height: 3.2rem;
-    margin-bottom: 140px;
   }
 
   @media (min-width: @desktop-width) {
     padding: 0;
+    margin-bottom: @vertical-indent-desktop;
   }
 }
 
@@ -44,10 +45,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 20px;
+  padding: @vertical-indent-mobile @horizontal-indent;
 
   @media (min-width: @tablet-width) {
-    padding: 80px 20px;
+    padding: @vertical-indent-tablet @horizontal-indent;
   }
 
   @media (min-width: @small-desktop-width) {
@@ -58,7 +59,7 @@
   }
 
   @media (min-width: @desktop-width) {
-    padding: 140px 20px;
+    padding: @vertical-indent-desktop @horizontal-indent;
   }
 
   .sub-title {
@@ -80,6 +81,11 @@
   box-sizing: border-box;
   display: block;
 
+  @media (max-width: @tablet-width - 1px) {
+    font-size: 1.4rem;
+    line-height: 2.143rem;
+  }
+
   @media (max-width: @small-desktop-width - 1px) {
     align-self: center;
   }
@@ -90,11 +96,6 @@
   }
 
   li {
-    @media (max-width: @tablet-width - 1px) {
-      font-size: 1.4rem;
-      line-height: 2.143rem;
-    }
-
     @media (min-width: @tablet-width) {
       margin-bottom: 40px;
     }

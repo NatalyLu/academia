@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   max-width: @container-max-width;
-  padding: 0 20px;
-  margin-bottom: 60px;
+  padding: 0 @horizontal-indent;
+  margin-bottom: @vertical-indent-mobile;
 
   @media (min-width: @tablet-width) {
     display: grid;
@@ -14,7 +14,7 @@
       "picture list";
       gap: 40px 0;
     padding: 0;
-    margin: 0 auto 80px auto;
+    margin: 0 auto @vertical-indent-tablet auto;
   }
 
   @media (min-width: @small-desktop-width) {
@@ -23,7 +23,7 @@
 
   @media (min-width: @desktop-width) {
     gap: 60px 0;
-    margin-bottom: 140px;
+    margin-bottom: @vertical-indent-desktop;
   }
 }
 

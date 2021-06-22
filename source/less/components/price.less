@@ -4,15 +4,15 @@
   justify-content: center;
   max-width: @container-max-width;
   margin: auto;
-  margin-bottom: 60px;
-  padding: 0 20px;
+  margin-bottom: @vertical-indent-mobile;
+  padding: 0 @horizontal-indent;
 
   @media (min-width: @tablet-width) {
-    margin-bottom: 80px;
+    margin-bottom: @vertical-indent-tablet;
   }
 
   @media (min-width: @desktop-width) {
-    margin-bottom: 140px;
+    margin-bottom: @vertical-indent-desktop;
     padding: 0;
   }
 }
