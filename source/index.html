@@ -168,7 +168,38 @@
           </div>
         </div>
       </section>
+      <div class="contact-us__wrapper">
+        <button class="contact-us__button">Заказать звонок</button>
+      </div>
       <a href="#" class="back-to-top back-to-top--hidden"></a>
+
+      <section class="popup">
+        <div class="popup__close"></div>
+        <form class="popup__form form">
+          <h2>Обратная связь</h2>
+          <div class="form__field">
+            <label for="name">Как к вам можно обращаться</label>
+            <input type="text" id="name" name="name" placeholder="Альберт Эйнштейн">
+          </div>
+          <div class="form__field">
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" placeholder="8911-111-1111" required>
+          </div>
+          <div class="form__field">
+            <label for="time">Удобное время</label>
+            <select class="form__select" id="time" name="select">
+              <option selected disabled>Выбрать</option>
+              <option value="8-10">8 - 10</option>
+              <option value="10-12">10 - 12</option>
+              <option value="12-14">12 - 14</option>
+              <option value="14-16">14 - 16</option>
+              <option value="16-18">16 - 18</option>
+              <option value="18-20">18 - 20</option>
+              <option value="any">Любое</option>
+            </select>
+          </div>
+        </form>
+      </section>
     </main>
 
     <footer>

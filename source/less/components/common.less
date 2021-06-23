@@ -64,14 +64,16 @@ body {
 // JIGGLE ANIMATION
 @keyframes jiggle {
   0% { transform: rotate(0deg); }
-  85% {
-    transform: rotate(0deg);
-  }
-  90% {
-    transform: rotate(10deg);
-  }
-  95% {
-    transform: rotate(-7deg);
-  }
+  85% { transform: rotate(0deg); }
+  90% { transform: rotate(10deg); }
+  95% { transform: rotate(-7deg); }
   100% { transform: rotate(0deg); }
+}
+
+
+
+@keyframes slideme {
+  0% { left: -30px; margin-left: 0px; }
+  10% { left: 110%; margin-left: 80px; }
+  100% { left: 110%; margin-left: 80px; }
 }
