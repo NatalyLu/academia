@@ -1,0 +1,50 @@
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1005;
+}
+
+.popup__close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  border-radius: 50%;
+  top: -50px;
+  right: 0;
+  background-color: rgba(@theme-color, .1);
+
+  div {
+    width: 17px;
+    height: 17px;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      top: 50%;  /* position the top  edge of the element at the middle of the parent */
+      left: 50%; /* position the left edge of the element at the middle of the parent */
+      // transform: translate(-50%, -50%);
+      background-color: @dark-text-color;
+    }
+
+    &:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

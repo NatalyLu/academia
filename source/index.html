@@ -293,12 +293,12 @@
       <a href="#" class="back-to-top back-to-top--hidden"></a>
 
       <section class="popup">
-        <div class="popup__close"></div>
-        <form class="popup__form form">
+        <form action="/login" method="post" class="popup__form form">
+          <div class="popup__close"><div></div></div>
           <h2>Обратная связь</h2>
           <div class="form__field">
             <label for="name">Как к вам можно обращаться</label>
-            <input type="text" id="name" name="name" placeholder="Альберт Эйнштейн">
+            <input type="text" id="name" name="name" placeholder="Альберт Эйнштейн" autofocus="autofocus">
           </div>
           <div class="form__field">
             <label for="phone">Телефон:</label>
@@ -317,6 +317,7 @@
               <option value="any">Любое</option>
             </select>
           </div>
+          <button name="submit" type="submit">Отправить</button>
         </form>
       </section>
     </main>
