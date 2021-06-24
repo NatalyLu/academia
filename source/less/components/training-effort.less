@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   max-width: @container-max-width;
   padding: 0 @horizontal-indent;
   margin-bottom: @vertical-indent-mobile;
@@ -36,7 +37,7 @@
   }
 }
 
-.training-effort__img {
+.training-effort__img-main {
   display: block;
   width: 100%;
   max-width: 600px;
@@ -48,6 +49,32 @@
     margin-bottom: 0;
     z-index: -2;
   }
+}
+
+.training-effort__img-background {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  top: 80px;
+  left: -200px;
+  opacity: .2;
+  z-index: -1;
+}
+
+.training-effort__img-background--2 {
+  width: 1000px;
+  height: 1000px;
+  top: 40px;
+  left: -180px;
+  animation: 8s ease-in-out infinite rotate;
+}
+
+.training-effort__img-background--3 {
+  width: 1000px;
+  height: 1000px;
+  top: 30px;
+  left: -240px;
+  animation: 12s linear infinite rotate2;
 }
 
 .training-effort__wraper {
