@@ -13,7 +13,6 @@
 .contact-us__button {
   font-size: 1.2rem;
   line-height: 2rem;
-  // font-weight: bold;
   width: 100%;
   padding: 10px 20px;
   margin: 0 20px;
@@ -23,6 +22,7 @@
   border-left: 5px solid rgba(@lite-warm, 0.2);
   border-right: 5px solid #000;
   border-bottom: 5px solid #000;
+  border-radius: 10px;
   text-align: center;
   text-transform: uppercase;
   position: relative;
@@ -69,7 +69,8 @@
     animation-iteration-count: infinite;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     cursor: pointer;
     color: @dark-text-color;
     border-top: 5px solid rgba(@lite-warm, 0.95);

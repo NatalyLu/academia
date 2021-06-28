@@ -36,12 +36,12 @@
           <h1 class="logo__title">Академия</h1>
           <h2 class="logo__sub-title">Центр подготовки к ЕГЭ/ОГЭ</h2>
         </a>
-        <ul class="nav__list">
+        <ul class="nav__list scrollto">
           <li><a href="#aboutUs">О нас</a></li>
           <li><a href="#price">Услуги</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
-        <a href="#" class="nav__menu-btn menu-btn">
+        <a role="link" aria-disabled="true" class="nav__menu-btn menu-btn">
           <span></span>
         </a>
         <div class="nav__contacts">
@@ -288,36 +288,38 @@
       <div class="contact-us__wrapper">
         <button class="contact-us__button">Заказать звонок</button>
       </div>
-      <a href="#" class="back-to-top back-to-top--hidden"></a>
+      <a role="link" aria-disabled="true" class="back-to-top back-to-top--hidden"></a>
 
-      <section class="popup">
+      <!-- <section class="popup">
         <form action="/login" method="post" class="popup__form form">
-          <div class="popup__close"><div></div></div>
-          <h2>Обратная связь</h2>
-          <div class="form__field">
-            <label for="name">Как к вам можно обращаться</label>
-            <input type="text" id="name" name="name" placeholder="Альберт Эйнштейн" autofocus="autofocus">
+          <div class="form__close"><div></div></div>
+          <h2 class="sub-title form__title">Заказать звонок</h2>
+          <div class="form__wrapper">
+            <div class="form__field">
+              <label class="form__label" for="name">Как к вам можно обращаться</label>
+              <input type="text" id="name" name="name" placeholder="Альберт Эйнштейн" autofocus="autofocus" maxlength="200">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="phone">Телефон:</label>
+              <input type="tel" id="phone" name="phone" placeholder="8911-111-1111" minlength="10" maxlength="40" required>
+            </div>
+            <div class="form__field form__field--select">
+              <label class="form__label" for="time">Удобное время</label>
+              <select class="form__select" id="time" name="select">
+                <option selected disabled>Выбрать</option>
+                <option value="8-10">8 - 10</option>
+                <option value="10-12">10 - 12</option>
+                <option value="12-14">12 - 14</option>
+                <option value="14-16">14 - 16</option>
+                <option value="16-18">16 - 18</option>
+                <option value="18-20">18 - 20</option>
+                <option selected value="any">Любое</option>
+              </select>
+            </div>
           </div>
-          <div class="form__field">
-            <label for="phone">Телефон:</label>
-            <input type="tel" id="phone" name="phone" placeholder="8911-111-1111" required>
-          </div>
-          <div class="form__field">
-            <label for="time">Удобное время</label>
-            <select class="form__select" id="time" name="select">
-              <option selected disabled>Выбрать</option>
-              <option value="8-10">8 - 10</option>
-              <option value="10-12">10 - 12</option>
-              <option value="12-14">12 - 14</option>
-              <option value="14-16">14 - 16</option>
-              <option value="16-18">16 - 18</option>
-              <option value="18-20">18 - 20</option>
-              <option value="any">Любое</option>
-            </select>
-          </div>
-          <button name="submit" type="submit">Отправить</button>
+          <button class="contact-us__button" name="submit" type="submit">Отправить</button>
         </form>
-      </section>
+      </section> -->
     </main>
 
     <footer>
@@ -343,6 +345,7 @@
         </li>
       </ul>
     </footer>
-    <script src="js/script.min.js"></script>
+    <!-- <script src="js/script.min.js"></script> -->
+    <script src="/js/script.js"></script>
   </body>
 </html>
