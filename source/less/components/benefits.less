@@ -22,6 +22,7 @@
   padding: 0 @horizontal-indent;
   max-width: @container-max-width;
   margin: 0 auto @vertical-indent-mobile auto;
+  overflow: hidden;
 
   @media (min-width: @tablet-width) {
     font-size: 1.4rem;
@@ -37,6 +38,29 @@
   @media (min-width: @desktop-width) {
     padding: 0;
     margin-bottom: @vertical-indent-desktop;
+  }
+}
+
+.benefits__paragraf-wrapper {
+  display: block;
+  margin: 0;
+  .animation-apear--hidden();
+  transform: translate(0, 0);
+
+  p {
+    margin: 0;
+  }
+
+  .animation-apear--hidden {
+    transform: translate(0, 110%);
+  }
+
+  &.animation-apear--active .animation-apear--hidden {
+    transform: translate(0, 0);
+  }
+
+  & + & {
+    margin-top: 50px;
   }
 }
 

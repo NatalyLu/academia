@@ -52,3 +52,50 @@
     addClickListener(link);
   });
 })();
+
+//---------- Плавное появление обьектов ----------//
+// У каждого обьекта с классом animation-items при достижении скролом 1/4 его высоты
+// или 1/4 высоты окна браузера, если высота обьекта больше, чем окно браузера, ему добавляется класс animation-apear--active.
+// Если не докрутили или перекрутили, то класс снимаем
+(function () {
+  let  animationItems = document.querySelectorAll(".animation-apear");
+  let offsetElement = (element) => {
+    const rect = element.getBoundingClientRect(),
+      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+  };
+
+  if (animationItems.length > 0) {
+    let apearAnimation = (params) => {
+      [].slice.call(animationItems).forEach((item) => {
+        const itemHeight = item.offsetHeight;
+        // позиция обьекта относительно верха страницы ( на сколько обьект находится ниже верха стр)
+        const itemOffset = offsetElement(item).top;
+        const itemStart = 4;
+
+        let itemPoint = window.innerHeight - itemHeight / itemStart;
+
+        // если элемент выше окна браузера
+        if (itemHeight > window.innerHeight) {
+          itemPoint = window.innerHeight - window.innerHeight / itemStart
+        }
+
+        // pageYOffset переменная в которую поступают данные о кол-ве проскроленных пикселей
+        // если мы прокрутили больше, чем позиция обьекта - точка старта, но при этом меньше чем позиция обьекта + его высота
+        if ((pageYOffset > itemOffset -  itemPoint) && (pageYOffset < itemOffset + itemHeight)) {
+          item.classList.add("animation-apear--active");
+        } else {
+          item.classList.remove("animation-apear--active")
+        }
+      });
+    }
+    // для воспроизведения анимации сразу, так как для первого блока с анимацией скролл не требуется
+    setTimeout(() => {
+      apearAnimation();
+    }, 300);
+
+    window.addEventListener("scroll", apearAnimation);
+  }
+})();
+

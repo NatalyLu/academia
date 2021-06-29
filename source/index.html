@@ -59,7 +59,7 @@
     <main>
       <section class="training-effort">
         <h1 class="main-title training-effort__title">Подготовка к ЕГЭ и ОГЭ 2021</h1>
-        <div class="training-effort__pictures-wrapper">
+        <div class="training-effort__pictures-wrapper animation-apear">
           <picture>
             <source srcset="img/boy.webp" type="img/webp">
             <img class="training-effort__img-main" src="img/extra-imgs/boy_orange_without-background.png" width="600" height="648" alt="Ученик решает тест">
@@ -74,7 +74,7 @@
             <use xlink:href="/img/svg/sprite.svg#blob-2"></use>
           </svg>
         </div>
-        <div class="training-effort__wraper">
+        <div class="training-effort__wraper animation-apear">
           <h2 class="sub-title">Направления:</h2>
           <ul class="training-effort__list list-animation">
             <li>
@@ -122,15 +122,22 @@
       </section>
 
       <section class="benefits">
-        <p class="benefits__text">
-          Преподаватели центра подготовки к ЕГЭ/ОГЭ «Академия» знают,
-          что результат образования зависит от высокого уровня преподавания
-          и заинтересованности каждого преподавателя в личном успехе ученика.
-          <br><br>
-          Для этого мы используем самые современные методические практики, интерактивные
-          и вовлекающие подходы к работе с учениками, а также поддерживаем
-          постоянный личный контакт с каждым учеником.
-        </p>
+        <div class="benefits__text">
+          <div class="benefits__paragraf-wrapper animation-apear">
+            <p class="animation-apear--hidden">
+              Преподаватели центра подготовки к ЕГЭ/ОГЭ «Академия» знают,
+              что результат образования зависит от высокого уровня преподавания
+              и заинтересованности каждого преподавателя в личном успехе ученика.
+            </p>
+          </div>
+          <div class="benefits__paragraf-wrapper animation-apear">
+            <p class="animation-apear--hidden">
+              Для этого мы используем самые современные методические практики, интерактивные
+              и вовлекающие подходы к работе с учениками, а также поддерживаем
+              постоянный личный контакт с каждым учеником.
+            </p>
+          </div>
+        </div>
         <div class="benefits__wrapper" id="aboutUs">
           <h2 class="sub-title">Достичь максимальных результатов с нами ЛЕГКО!</h2>
           <ul class="benefits__list list-animation">
@@ -349,7 +356,7 @@
       </ul>
     </footer>
     <script src="/js/jquery/jquery-3.6.0.min.js"></script>
-    <!-- <script src="js/script.min.js"></script> -->
-    <script src="/js/script.js"></script>
+    <script src="js/script.min.js"></script>
+    <!-- <script src="/js/script.js"></script> -->
   </body>
 </html>
