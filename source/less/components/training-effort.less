@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
   max-width: @container-max-width;
   padding: 0 @horizontal-indent;
   margin-bottom: @vertical-indent-mobile;
@@ -29,11 +28,25 @@
 }
 
 .training-effort__title {
-  margin: 0 0 20px 0;
+  margin: 0;
 
   @media (min-width: @tablet-width) {
     grid-area: title;
-    margin: 0;
+  }
+}
+
+.training-effort__pictures-wrapper {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  position: relative;
+  margin-bottom: 60px;
+
+  @media (min-width: @tablet-width) {
+    grid-area: picture;
+    z-index: -2;
+    margin-bottom: 0;
   }
 }
 
@@ -42,39 +55,50 @@
   width: 100%;
   max-width: 600px;
   height: auto;
-  margin-bottom: 20px;
-
-  @media (min-width: @tablet-width) {
-    grid-area: picture;
-    margin-bottom: 0;
-    z-index: -2;
-  }
 }
 
 .training-effort__img-background {
   position: absolute;
-  width: 900px;
-  height: 900px;
-  top: 80px;
-  left: -200px;
   opacity: .2;
   z-index: -1;
+  left: -30%;
+
+  @media (min-width: @tablet-width) {
+    width: 900px;
+    height: 900px;
+    top: 80px;
+    left: -200px;
+  }
+}
+
+.training-effort__img-background--1 {
+  animation: 12s ease-in-out 2s infinite rotate;
+  width: 160%;
+  height: 160%;
+  top: -20%;
+
+  @media (min-width: @tablet-width) {
+    left: -170px;
+  }
 }
 
 .training-effort__img-background--2 {
-  width: 1000px;
-  height: 1000px;
-  top: 40px;
-  left: -180px;
   animation: 8s ease-in-out infinite rotate;
+  top: -30%;
+  width: 160%;
+  height: 170%;
+
+  @media (min-width: @tablet-width) {
+    animation-delay: 3s;
+    left: -100px;
+  }
 }
 
 .training-effort__img-background--3 {
-  width: 1000px;
-  height: 1000px;
-  top: 30px;
-  left: -240px;
-  animation: 12s linear infinite rotate2;
+  animation: 8s ease-in-out 4s infinite rotate;
+  top: -40%;
+  width: 180%;
+  height: 190%;
 }
 
 .training-effort__wraper {
