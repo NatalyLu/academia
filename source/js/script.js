@@ -57,7 +57,7 @@
 // У каждого обьекта с классом animation-items при достижении скролом 1/4 его высоты
 // или 1/4 высоты окна браузера, если высота обьекта больше, чем окно браузера, ему добавляется класс animation-apear--active.
 // Если не докрутили или перекрутили, то класс снимаем
-(function () {
+let elementApear = () => {
   let  animationItems = document.querySelectorAll(".animation-apear");
   let offsetElement = (element) => {
     const rect = element.getBoundingClientRect(),
@@ -97,5 +97,12 @@
 
     window.addEventListener("scroll", apearAnimation);
   }
-})();
+}
 
+if (document.documentElement.clientWidth > 768) {
+  elementApear();
+}
+
+// if ( $(window).width() >= 768 ) {
+//   elementApear();
+// }

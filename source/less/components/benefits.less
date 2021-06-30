@@ -44,19 +44,22 @@
 .benefits__paragraf-wrapper {
   display: block;
   margin: 0;
-  .animation-apear--hidden();
-  transform: translate(0, 0);
+
+  @media (min-width: @tablet-width) {
+    .animation-apear--hidden();
+    transform: translate(0, 0);
+
+    .animation-apear--hidden {
+      transform: translate(0, 110%);
+    }
+
+    &.animation-apear--active .animation-apear--hidden {
+      transform: translate(0, 0);
+    }
+  }
 
   p {
     margin: 0;
-  }
-
-  .animation-apear--hidden {
-    transform: translate(0, 110%);
-  }
-
-  &.animation-apear--active .animation-apear--hidden {
-    transform: translate(0, 0);
   }
 
   & + & {
