@@ -25,10 +25,10 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
   </head>
-  <body>
+  <body id="body">
     <header>
       <nav class="nav">
-        <a class="nav__logo logo" href="#contacts">
+        <a class="nav__logo logo" href="#contacts" data-anchor-link="anchor-link">
           <picture>
             <source srcset="img/logo.webp" type="img/webp">
             <img class="logo__svg" src="img/logo.png" width="67" height="95" alt="Логотип Академии">
@@ -36,10 +36,10 @@
           <h1 class="logo__title">Академия</h1>
           <h2 class="logo__sub-title">Центр подготовки к ЕГЭ/ОГЭ</h2>
         </a>
-        <ul class="nav__list scrollto">
-          <li><a href="#aboutUs">О нас</a></li>
-          <li><a href="#price">Услуги</a></li>
-          <li><a href="#contacts">Контакты</a></li>
+        <ul class="nav__list">
+          <li><a href="#aboutUs" data-anchor-link="anchor-link">О нас</a></li>
+          <li><a href="#price" data-anchor-link="anchor-link">Услуги</a></li>
+          <li><a href="#contacts" data-anchor-link="anchor-link">Контакты</a></li>
         </ul>
         <a role="link" aria-disabled="true" class="nav__menu-btn menu-btn">
           <span></span>
@@ -59,24 +59,26 @@
     <main>
       <section class="training-effort">
         <h1 class="main-title training-effort__title">Подготовка к ЕГЭ и ОГЭ 2021</h1>
-        <picture>
-          <source srcset="img/boy.webp" type="img/webp">
-          <img class="training-effort__img-main" src="img/extra-imgs/boy_orange_without-background.png" width="600" height="648" alt="Ученик решает тест">
-        </picture>
-        <svg class="training-effort__img-background training-effort__img-background--1" width="200" height="200">
-          <use xlink:href="/img/svg/sprite.svg#blob-1"></use>
-        </svg>
-        <svg class="training-effort__img-background training-effort__img-background--2" width="200" height="200">
-          <use xlink:href="/img/svg/sprite.svg#blob-2"></use>
-        </svg>
-        <svg class="training-effort__img-background training-effort__img-background--3" width="200" height="200">
-          <use xlink:href="/img/svg/sprite.svg#blob-2"></use>
-        </svg>
-        <div class="training-effort__wraper">
+        <div class="training-effort__pictures-wrapper animation-apear">
+          <picture>
+            <source srcset="img/boy.webp" type="img/webp">
+            <img class="training-effort__img-main" src="img/extra-imgs/boy_orange_without-background.png" width="600" height="648" alt="Ученик решает тест">
+          </picture>
+          <svg class="training-effort__img-background training-effort__img-background--1" width="200" height="200">
+            <use xlink:href="/img/svg/sprite.svg#blob-1"></use>
+          </svg>
+          <svg class="training-effort__img-background training-effort__img-background--2" width="200" height="200">
+            <use xlink:href="/img/svg/sprite.svg#blob-2"></use>
+          </svg>
+          <svg class="training-effort__img-background training-effort__img-background--3" width="200" height="200">
+            <use xlink:href="/img/svg/sprite.svg#blob-2"></use>
+          </svg>
+        </div>
+        <div class="training-effort__wraper animation-apear">
           <h2 class="sub-title">Направления:</h2>
           <ul class="training-effort__list list-animation">
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-birge"></use>
                 </svg>
@@ -86,7 +88,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-birge"></use>
                 </svg>
@@ -96,7 +98,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-birge"></use>
                 </svg>
@@ -106,7 +108,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-birge"></use>
                 </svg>
@@ -120,20 +122,27 @@
       </section>
 
       <section class="benefits">
-        <p class="benefits__text">
-          Преподаватели центра подготовки к ЕГЭ/ОГЭ «Академия» знают,
-          что результат образования зависит от высокого уровня преподавания
-          и заинтересованности каждого преподавателя в личном успехе ученика.
-          <br><br>
-          Для этого мы используем самые современные методические практики, интерактивные
-          и вовлекающие подходы к работе с учениками, а также поддерживаем
-          постоянный личный контакт с каждым учеником.
-        </p>
+        <div class="benefits__text">
+          <div class="benefits__paragraf-wrapper animation-apear">
+            <p class="animation-apear--hidden">
+              Преподаватели центра подготовки к ЕГЭ/ОГЭ «Академия» знают,
+              что результат образования зависит от высокого уровня преподавания
+              и заинтересованности каждого преподавателя в личном успехе ученика.
+            </p>
+          </div>
+          <div class="benefits__paragraf-wrapper animation-apear">
+            <p class="animation-apear--hidden">
+              Для этого мы используем самые современные методические практики, интерактивные
+              и вовлекающие подходы к работе с учениками, а также поддерживаем
+              постоянный личный контакт с каждым учеником.
+            </p>
+          </div>
+        </div>
         <div class="benefits__wrapper" id="aboutUs">
           <h2 class="sub-title">Достичь максимальных результатов с нами ЛЕГКО!</h2>
           <ul class="benefits__list list-animation">
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-yellow"></use>
                 </svg>
@@ -143,7 +152,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-yellow"></use>
                 </svg>
@@ -153,7 +162,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-yellow"></use>
                 </svg>
@@ -163,7 +172,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-yellow"></use>
                 </svg>
@@ -173,7 +182,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-yellow"></use>
                 </svg>
@@ -183,7 +192,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-yellow"></use>
                 </svg>
@@ -193,7 +202,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-yellow"></use>
                 </svg>
@@ -203,7 +212,7 @@
               </a>
             </li>
             <li>
-              <a href="#price">
+              <a href="#price" data-anchor-link="anchor-link">
                 <svg class="list-animation__img" width="30" height="30">
                   <use xlink:href="/img/svg/sprite.svg#yes-yellow"></use>
                 </svg>
@@ -231,8 +240,8 @@
               <p class="tariffs__description">
                 Телефоны для связи:
               </p>
-              <a class="tariffs__number" href="tel:{+7(930)712-20-21}" aria-label="Академия телефон 1">+7(930)712-20-21</a>
-              <a class="tariffs__number" href="tel:{+7(987)752-55-68}" aria-label="Академия телефон 2">+7(987)752-55-68</a>
+              <a class="tariffs__number" tabindex="-1" href="tel:{+7(930)712-20-21}" aria-label="Академия телефон 1">+7(930)712-20-21</a>
+              <a class="tariffs__number" tabindex="-1" href="tel:{+7(987)752-55-68}" aria-label="Академия телефон 2">+7(987)752-55-68</a>
             </div>
           </li>
           <li class="tariffs__element">
@@ -245,8 +254,8 @@
               <p class="tariffs__description">
                 Телефоны для связи:
               </p>
-              <a class="tariffs__number" href="tel:{+7(930)712-20-21}" aria-label="Академия телефон 1">+7(930)712-20-21</a>
-              <a class="tariffs__number" href="tel:{+7(987)752-55-68}" aria-label="Академия телефон 2">+7(987)752-55-68</a>
+              <a class="tariffs__number" tabindex="-1" href="tel:{+7(930)712-20-21}" aria-label="Академия телефон 1">+7(930)712-20-21</a>
+              <a class="tariffs__number" tabindex="-1" href="tel:{+7(987)752-55-68}" aria-label="Академия телефон 2">+7(987)752-55-68</a>
             </div>
           </li>
           <li class="tariffs__element">
@@ -259,8 +268,8 @@
               <p class="tariffs__description">
                 Телефоны для связи:
               </p>
-              <a class="tariffs__number" href="tel:{+7(930)712-20-21}" aria-label="Академия телефон 1">+7(930)712-20-21</a>
-              <a class="tariffs__number" href="tel:{+7(987)752-55-68}" aria-label="Академия телефон 2">+7(987)752-55-68</a>
+              <a class="tariffs__number" tabindex="-1" href="tel:{+7(930)712-20-21}" aria-label="Академия телефон 1">+7(930)712-20-21</a>
+              <a class="tariffs__number" tabindex="-1" href="tel:{+7(987)752-55-68}" aria-label="Академия телефон 2">+7(987)752-55-68</a>
             </div>
           </li>
         </ul>
@@ -288,7 +297,8 @@
       <div class="contact-us__wrapper">
         <button class="contact-us__button">Заказать звонок</button>
       </div>
-      <a role="link" aria-disabled="true" class="back-to-top back-to-top--hidden"></a>
+      <a  class="back-to-top back-to-top--hidden" href="#body" data-anchor-link="anchor-link"></a>
+      <!-- <a role="link" aria-disabled="true" class="back-to-top back-to-top--hidden"></a> -->
 
       <!-- <section class="popup">
         <form action="/login" method="post" class="popup__form form">
@@ -345,7 +355,8 @@
         </li>
       </ul>
     </footer>
-    <!-- <script src="js/script.min.js"></script> -->
-    <script src="/js/script.js"></script>
+    <script src="/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="js/script.min.js"></script>
+    <!-- <script src="/js/script.js"></script> -->
   </body>
 </html>

@@ -112,6 +112,7 @@ const copy = (done) => {
     "source/*.{xml,png,ico,svg,webmanifest}",
     "source/img/**/*.{jpg,png,svg}",
     "source/js/script.js",
+    "source/js/jquery/jquery-3.6.0.min.js",
   ], {
     base: "source"
   })

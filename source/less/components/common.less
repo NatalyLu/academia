@@ -1,7 +1,6 @@
 html {
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
   // overflow-y: scroll;
-  // -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
 }
 
@@ -12,12 +11,7 @@ body {
   line-height: 1.57rem;
   margin: 0;
   overflow-x: hidden;
-  // scroll-behavior: smooth;
 }
-
-// main {
-//   scroll-behavior: smooth;
-// }
 
 .visually-hidden {
   position: absolute;
@@ -86,9 +80,9 @@ body {
 
 // ROTATION ANIMATION 10deg
 @keyframes rotate {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(30deg); }
-  100% { transform: rotate(0deg); }
+  0% { transform: rotate(0deg) scale(1) ; }
+  50% { transform: rotate(30deg) scale(1.1); }
+  100% { transform: rotate(0deg) scale(1) ; }
 }
 
 // ROTATION ANIMATION 360deg
