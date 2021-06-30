@@ -3,10 +3,134 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   margin: 10px 10px 0 10px;
   padding: 30px;
   border-radius: 10px;
   box-sizing: border-box;
   background-color: @theme-color;
+
+  .contact-us__button {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+.form__close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  border-radius: 50%;
+  top: -50px;
+  right: 0;
+  cursor: pointer;
+  background-color: rgba(@theme-color, .1);
+  transition: background-color .5s;
+
+  div {
+    width: 17px;
+    height: 17px;
+    position: relative;
+    transition: transform .3s;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      top: 50%;  /* position the top  edge of the element at the middle of the parent */
+      left: 50%; /* position the left edge of the element at the middle of the parent */
+      background-color: @dark-text-color;
+    }
+
+    &:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  &:hover {
+    background-color: @theme-color;
+    transition: background-color .5s;
+
+    div {
+      transform: rotate(180deg);
+      transition: transform .3s;
+    }
+  }
+}
+
+.form__title {
+  margin-bottom: 30px;
+}
+
+.form__wrapper {
+  margin-bottom: 40px;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  input,
+  .form__select {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    padding: 12px;
+    border: 2px solid rgba(@dark-text-color, .3);
+    outline: none;
+    border-radius: 10px;
+    background-color: @theme-color;
+    color: @dark-text-color;
+
+    &::placeholder {
+      color: rgba(@dark-text-color, .3);
+      opacity: 1;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: @dark-text-color;
+    }
+  }
+}
+
+.form__field--select {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: 25px;
+    right: 15px;
+    background-color: transparent;
+    border-bottom: 1px solid @dark-text-color;
+    border-left: 1px solid @dark-text-color;
+    transform: rotate(-45deg);
+  }
+
+  .form__select {
+    appearance: none;
+    padding-right: 30px;
+  }
+}
+
+.form__label {
+  padding-bottom: 10px;
 }

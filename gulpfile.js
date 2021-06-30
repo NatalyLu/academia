@@ -10,7 +10,7 @@ const imagemin = require("gulp-imagemin");
 const webp = require("gulp-webp");
 const svgstore = require("gulp-svgstore");
 const htmlmin = require("gulp-htmlmin");
-const terser = require("gulp-terser");
+const terser = require("gulp-terser-js");
 const sync = require("browser-sync").create();
 const del= require('del');
 
@@ -46,7 +46,14 @@ exports.styles = styles;
 
 const scripts = () => {
   return gulp.src("source/js/script.js")
-    .pipe(terser())
+    .pipe(terser({
+      mangle: {
+        toplevel: true
+      }
+    }))
+    .on('error', function (error) {
+      this.emit('end')
+    })
     .pipe(rename("script.min.js"))
     .pipe(gulp.dest("build/js"))
     .pipe(sync.stream());
@@ -104,6 +111,8 @@ const copy = (done) => {
   gulp.src([
     "source/*.{xml,png,ico,svg,webmanifest}",
     "source/img/**/*.{jpg,png,svg}",
+    "source/js/script.js",
+    "source/js/jquery/jquery-3.6.0.min.js",
   ], {
     base: "source"
   })
