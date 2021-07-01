@@ -41,22 +41,18 @@
   }
 }
 
-.benefits__paragraf-wrapper {
+.benefits__paragraph-wrapper {
   display: block;
   margin: 0;
+  transform: translate(0, 0);
 
-  // @media (min-width: @tablet-width) {
-    .animation-apear--hidden();
+  .animation-apear--hide-elem {
+    transform: translate(0, 110%);
+  }
+
+  &.animation-apear--active .animation-apear--hide-elem {
     transform: translate(0, 0);
-
-    .animation-apear--hidden {
-      transform: translate(0, 110%);
-    }
-
-    &.animation-apear--active .animation-apear--hidden {
-      transform: translate(0, 0);
-    }
-  // }
+  }
 
   p {
     margin: 0;
@@ -147,5 +143,13 @@
         display: none;
       }
     }
+  }
+
+  &.animation-apear--hide-elem {
+    transform: translate(-100%, 0);
+  }
+
+  &.animation-apear--active {
+    transform: translate(0, 0);
   }
 }
