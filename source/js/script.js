@@ -101,11 +101,7 @@ let elementApear = () => {
 
 if (document.documentElement.clientWidth > 768) {
   [].slice.call(document.querySelectorAll(".animation-apear--element")).forEach((element) => {
-    element.classList.add("animation-apear--hidden");
+    element.classList.add("animation-apear--hide-elem");
   })
   elementApear();
 }
-
-// if ( $(window).width() >= 768 ) {
-//   elementApear();
-// }
