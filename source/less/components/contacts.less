@@ -105,6 +105,14 @@
   justify-content: center;
   gap: 15px;
   text-align: center;
+
+  &.animation-apear--hide-elem {
+    transform: translate(-110%, 0);
+  }
+
+  &.animation-apear--active {
+    transform: translate(0, 0);
+  }
 }
 
 .contacts__email {
@@ -112,4 +120,12 @@
   justify-content: center;
   text-align: center;
   gap: 15px;
+
+  &.animation-apear--hide-elem {
+    transform: translate(110%, 0);
+  }
+
+  &.animation-apear--active {
+    transform: translate(0, 0);
+  }
 }

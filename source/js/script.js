@@ -103,5 +103,5 @@ if (document.documentElement.clientWidth > 768) {
   [].slice.call(document.querySelectorAll(".animation-apear--element")).forEach((element) => {
     element.classList.add("animation-apear--hide-elem");
   })
-  elementApear();
+  setTimeout(elementApear, 800);
 }
