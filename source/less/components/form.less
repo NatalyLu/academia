@@ -5,14 +5,34 @@
   width: 100%;
   max-width: 500px;
   margin: 10px 10px 0 10px;
-  padding: 30px;
+  padding: 40px 30px;
   border-radius: 10px;
   box-sizing: border-box;
   background-color: @theme-color;
+  max-height: 90vh;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  @media (min-width: @tablet-width) {
+    max-width: 600px;
+    padding: 60px;
+  }
 
   .contact-us__button {
-    max-width: 200px;
-    margin: 0 auto;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: min-content;
+    min-height: 60px;
+
+    @media (min-width: @tablet-width) {
+      max-width: 100%;
+      min-height: 80px;
+    }
   }
 }
 
@@ -20,21 +40,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   position: absolute;
-  border-radius: 50%;
-  top: -50px;
-  right: 0;
+  border: none;
+  top: 7px;
+  right: 7px;
   cursor: pointer;
-  background-color: rgba(@theme-color, .1);
-  transition: background-color .5s;
+  background-color: @theme-color;
+
+  @media (min-width: @tablet-width) {
+    width: 50px;
+    height: 50px;
+  }
 
   div {
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
     position: relative;
     transition: transform .3s;
+
+    @media (min-width: @tablet-width) {
+      width: 25px;
+      height: 25px;
+    }
 
     &:before,
     &:after {
@@ -57,9 +86,6 @@
   }
 
   &:hover {
-    background-color: @theme-color;
-    transition: background-color .5s;
-
     div {
       transform: rotate(180deg);
       transition: transform .3s;
@@ -69,6 +95,10 @@
 
 .form__title {
   margin-bottom: 30px;
+
+  @media (min-width: @tablet-width) {
+    margin-bottom: 40px;
+  }
 }
 
 .form__wrapper {
@@ -81,6 +111,12 @@
   margin-bottom: 25px;
   font-size: 1.2rem;
   line-height: 1.8rem;
+
+  @media (min-width: @tablet-width) {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    margin-bottom: 40px;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -96,6 +132,12 @@
     border-radius: 10px;
     background-color: @theme-color;
     color: @dark-text-color;
+
+    @media (min-width: @tablet-width) {
+      font-size: 1.6rem;
+      line-height: 1.8rem;
+      padding: 25px;
+    }
 
     &::placeholder {
       color: rgba(@dark-text-color, .3);
@@ -123,6 +165,13 @@
     border-bottom: 1px solid @dark-text-color;
     border-left: 1px solid @dark-text-color;
     transform: rotate(-45deg);
+
+    @media (min-width: @tablet-width) {
+      width: 15px;
+      height: 15px;
+      bottom: 36px;
+      right: 25px;
+    }
   }
 
   .form__select {
@@ -133,4 +182,8 @@
 
 .form__label {
   padding-bottom: 10px;
+
+  @media (min-width: @tablet-width) {
+    padding-bottom: 20px;
+  }
 }

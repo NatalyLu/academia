@@ -59,7 +59,7 @@
     <main>
       <section class="training-effort">
         <h1 class="main-title training-effort__title">Подготовка к ЕГЭ и ОГЭ 2021</h1>
-        <div class="training-effort__pictures-wrapper animation-apear animation-apear--element">
+        <div class="training-effort__pictures-wrapper animation-apear--hide-elem animation-apear--first-block">
           <picture>
             <source srcset="img/boy.webp" type="img/webp">
             <img class="training-effort__img-main" src="img/extra-imgs/boy_orange_without-background.png" width="600" height="648" alt="Ученик решает тест">
@@ -74,7 +74,7 @@
             <use xlink:href="/img/svg/sprite.svg#blob-2"></use>
           </svg>
         </div>
-        <div class="training-effort__wrapper animation-apear animation-apear--element">
+        <div class="training-effort__wrapper animation-apear--hide-elem animation-apear--first-block">
           <h2 class="sub-title">Направления:</h2>
           <ul class="training-effort__list list-animation">
             <li>
@@ -300,9 +300,11 @@
       <a  class="back-to-top back-to-top--hidden" href="#body" data-anchor-link="anchor-link"></a>
       <!-- <a role="link" aria-disabled="true" class="back-to-top back-to-top--hidden"></a> -->
 
-      <!-- <section class="popup">
+      <section class="popup" id="call-popup">
         <form action="/login" method="post" class="popup__form form">
-          <div class="form__close"><div></div></div>
+          <button class="form__close">
+            <div><span class="visually-hidden">Закрыть</span></div>
+          </button>
           <h2 class="sub-title form__title">Заказать звонок</h2>
           <div class="form__wrapper">
             <div class="form__field">
@@ -329,7 +331,7 @@
           </div>
           <button class="contact-us__button" name="submit" type="submit">Отправить</button>
         </form>
-      </section> -->
+      </section>
     </main>
 
     <footer>
@@ -356,7 +358,7 @@
       </ul>
     </footer>
     <script src="/js/jquery/jquery-3.6.0.min.js"></script>
-    <script src="js/script.min.js"></script>
-    <!-- <script src="/js/script.js"></script> -->
+    <!-- <script src="js/script.min.js"></script> -->
+    <script src="/js/script.js"></script>
   </body>
 </html>

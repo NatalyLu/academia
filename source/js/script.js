@@ -1,3 +1,40 @@
+//---------- Константы ----------//
+(function () {
+  var ESC_KEYCODE = 27;
+  var ENTER_KEYCODE = 13;
+
+  window.util = {
+    ESC_KEYCODE: ESC_KEYCODE,
+    ENTER_KEYCODE: ENTER_KEYCODE
+  };
+})();
+
+//---------- Смена класса по клику/нажатию на esc или enter ----------//
+let toggleElement = (targetClass, activeElement, activeClass, extraFunction) => {
+  let targetItems = document.querySelectorAll(targetClass);
+
+  let toggleClass = (el) => {
+    el.classList.toggle(activeClass);
+    extraFunction();
+  }
+
+  [].slice.call(targetItems).forEach(item => {
+    item.addEventListener("click", (evt) => {
+      evt.preventDefault();
+      activeElement ? toggleClass(activeElement) : toggleClass(item);
+    });
+  });
+
+  [].slice.call(targetItems).forEach(item => {
+    item.addEventListener("keydown", (evt) => {
+      evt.preventDefault();
+      if (evt.keyCode === window.util.ENTER_KEYCODE || evt.keyCode === window.util.ESC_KEYCODE) {
+        activeElement ? toggleClass(activeElement) : toggleClass(item);
+      }
+    });
+  });
+};
+
 //---------- Кнопка "Наверх" ----------//
 (function () {
   let btnToTop = document.querySelector(".back-to-top");
@@ -12,24 +49,10 @@
 
 //---------- Кнопка "Меню" ----------//
 (function () {
-  let menuButton = document.querySelector(".menu-btn");
-
-  let toggleMenu = () => {
-    menuButton.classList.toggle("menu-btn--active");
+  let extraToggle = () => {
     document.querySelector(".nav__list").classList.toggle("nav__list--active");
   }
-
-  menuButton.addEventListener("click", (evt) => {
-    evt.preventDefault();
-    toggleMenu();
-  });
-
-  menuButton.addEventListener("keydown", (evt) => {
-    evt.preventDefault();
-    if (evt.key === ENTER_KEY || evt.key === ESC_KEY) {
-      toggleMenu();
-    }
-  });
+  toggleElement (".menu-btn", false, "menu-btn--active", extraToggle);
 })();
 
 //---------- Плавная прокрутка ----------//
@@ -57,8 +80,8 @@
 // У каждого обьекта с классом animation-items при достижении скролом 1/4 его высоты
 // или 1/4 высоты окна браузера, если высота обьекта больше, чем окно браузера, ему добавляется класс animation-apear--active.
 // Если не докрутили или перекрутили, то класс снимаем
-let elementApear = () => {
-  let  animationItems = document.querySelectorAll(".animation-apear");
+let elementApear = (targetClass, activeClass) => {
+  let  animationItems = document.querySelectorAll(targetClass);
   let offsetElement = (element) => {
     const rect = element.getBoundingClientRect(),
       scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
@@ -84,9 +107,9 @@ let elementApear = () => {
         // pageYOffset переменная в которую поступают данные о кол-ве проскроленных пикселей
         // если мы прокрутили больше, чем позиция обьекта - точка старта, но при этом меньше чем позиция обьекта + его высота
         if ((pageYOffset > itemOffset -  itemPoint) && (pageYOffset < itemOffset + itemHeight)) {
-          item.classList.add("animation-apear--active");
+          item.classList.add(activeClass);
         } else {
-          item.classList.remove("animation-apear--active")
+          item.classList.remove(activeClass)
         }
       });
     }
@@ -99,9 +122,62 @@ let elementApear = () => {
   }
 }
 
+// Применяем анимацию сразу при загрузке страницы только к первому блоку (чтобы избежать моргания)
+elementApear(".animation-apear--first-block", "animation-apear--active-first-block");
+
+// Исключаем анимацию для узких устройств
 if (document.documentElement.clientWidth > 768) {
+  // Для остальных блоков, если скрипты подгрузятся, то сначала скрываем, а затем анимируем нужные элементы
   [].slice.call(document.querySelectorAll(".animation-apear--element")).forEach((element) => {
     element.classList.add("animation-apear--hide-elem");
   })
-  setTimeout(elementApear, 800);
+  setTimeout(elementApear(".animation-apear", "animation-apear--active"), 500);
 }
+
+//---------- Работа с попапом ----------//
+(function () {
+  let activeElement = document.getElementById("call-popup");
+  let closeButton = activeElement.querySelector(".form__close");
+  let targetItems = document.querySelectorAll(".contact-us__button");
+
+  let closePopupKeyDown = (evt) => {
+    if (evt.keyCode === window.util.ENTER_KEYCODE) {
+      closePopup(evt);
+    }
+  }
+  let closeEsc = (evt) => {
+    if (evt.keyCode === window.util.ESC_KEYCODE) {
+      closePopup(evt);
+    }
+  }
+
+  let closePopup = (evt) => {
+    evt.preventDefault();
+    activeElement.classList.remove("popup--active");
+    closeButton.removeEventListener("click", closePopup);
+    closeButton.removeEventListener("keydown", closePopupKeyDown);
+    window.removeEventListener("keydown", closeEsc);
+  }
+
+  let openPopup = (evt) => {
+    evt.preventDefault();
+    activeElement.classList.add("popup--active");
+    closeButton.addEventListener("click", closePopup);
+    closeButton.addEventListener("keydown", closePopupKeyDown);
+    window.addEventListener("keydown", closeEsc);
+  }
+
+  [].slice.call(targetItems).forEach(item => {
+    item.addEventListener("click", (evt) => {
+      openPopup(evt);
+    });
+  });
+
+  [].slice.call(targetItems).forEach(item => {
+    item.addEventListener("keydown", (evt) => {
+      if (evt.keyCode === window.util.ENTER_KEYCODE) {
+        openPopup(evt);
+      }
+    });
+  });
+})();
