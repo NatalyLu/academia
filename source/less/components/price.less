@@ -5,15 +5,17 @@
   max-width: @container-max-width;
   margin: auto;
   margin-bottom: @vertical-indent-mobile;
-  padding: 0 @horizontal-indent;
+  padding: @vertical-indent-mobile @horizontal-indent 0 @horizontal-indent;
 
   @media (min-width: @tablet-width) {
+    padding-top: @vertical-indent-tablet;
     margin-bottom: @vertical-indent-tablet;
   }
 
   @media (min-width: @desktop-width) {
     margin-bottom: @vertical-indent-desktop;
     padding: 0;
+    padding-top: @vertical-indent-desktop;
   }
 }
 
