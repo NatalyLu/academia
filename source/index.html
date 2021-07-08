@@ -301,7 +301,7 @@
       <!-- <a role="link" aria-disabled="true" class="back-to-top back-to-top--hidden"></a> -->
 
       <section class="popup" id="call-popup">
-        <form action="/login" method="post" class="popup__form form">
+        <form action="source/phpmailer/mail.php" method="POST" class="popup__form form">
           <button class="form__close">
             <div><span class="visually-hidden">Закрыть</span></div>
           </button>
@@ -309,15 +309,15 @@
           <div class="form__wrapper">
             <div class="form__field">
               <label class="form__label" for="name">Как к вам можно обращаться</label>
-              <input type="text" id="name" name="name" placeholder="Альберт Эйнштейн" autofocus="autofocus" maxlength="200">
+              <input type="text" id="name" name="name" pattern="[А-Яа-яЁё]" placeholder="Альберт Эйнштейн" autofocus="autofocus" maxlength="200">
             </div>
             <div class="form__field">
               <label class="form__label" for="phone">Телефон:</label>
-              <input type="tel" id="phone" name="phone" placeholder="8911-111-1111" minlength="10" maxlength="40" required>
+              <input type="tel" id="phone" name="phone" pattern="[0-9]+{10,12}" placeholder="8911-111-1111" minlength="10" maxlength="40" required>
             </div>
             <div class="form__field form__field--select">
               <label class="form__label" for="time">Удобное время</label>
-              <select class="form__select" id="time" name="select">
+              <select class="form__select" id="time" name="time">
                 <option selected disabled>Выбрать</option>
                 <option value="8-10">8 - 10</option>
                 <option value="10-12">10 - 12</option>
