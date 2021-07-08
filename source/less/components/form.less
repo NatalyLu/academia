@@ -28,9 +28,10 @@
     justify-content: center;
     max-width: min-content;
     min-height: 60px;
+    margin: 0;
+    max-width: 100%;
 
     @media (min-width: @tablet-width) {
-      max-width: 100%;
       min-height: 80px;
     }
   }
@@ -103,6 +104,10 @@
 
 .form__wrapper {
   margin-bottom: 40px;
+
+  @media (min-width: @tablet-width) {
+    margin-bottom: 60px;
+  }
 }
 
 .form__field {
