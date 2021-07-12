@@ -136,6 +136,7 @@ if (document.documentElement.clientWidth > 768) {
 
 //---------- Работа с попапом ----------//
 (function () {
+  let html = document.getElementById("html");
   let activeElement = document.getElementById("call-popup");
   let closeButton = activeElement.querySelector(".form__close");
   let targetItems = document.querySelectorAll(".contact-us__button");
@@ -145,6 +146,7 @@ if (document.documentElement.clientWidth > 768) {
       closePopup(evt);
     }
   }
+
   let closeEsc = (evt) => {
     if (evt.keyCode === window.util.ESC_KEYCODE) {
       closePopup(evt);
@@ -157,6 +159,8 @@ if (document.documentElement.clientWidth > 768) {
     closeButton.removeEventListener("click", closePopup);
     closeButton.removeEventListener("keydown", closePopupKeyDown);
     window.removeEventListener("keydown", closeEsc);
+    // Отмена запрета скрола страницы
+    html.classList.remove("lock");
   }
 
   let openPopup = (evt) => {
@@ -165,6 +169,8 @@ if (document.documentElement.clientWidth > 768) {
     closeButton.addEventListener("click", closePopup);
     closeButton.addEventListener("keydown", closePopupKeyDown);
     window.addEventListener("keydown", closeEsc);
+    // Запрет скрола страницы
+    html.classList.add("lock");
   }
 
   [].slice.call(targetItems).forEach(item => {
