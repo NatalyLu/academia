@@ -122,6 +122,10 @@
         </div>
       </section>
 
+      <div class="contact-us__wrapper">
+        <button class="contact-us__button button-callback">Заказать звонок</button>
+      </div>
+
       <section class="benefits">
         <div class="benefits__text">
           <div class="benefits__paragraph-wrapper animation-apear">
@@ -295,14 +299,11 @@
           </div>
         </div>
       </section>
-      <div class="contact-us__wrapper">
-        <button class="contact-us__button">Заказать звонок</button>
-      </div>
       <a  class="back-to-top back-to-top--hidden" href="#body" data-anchor-link="anchor-link"></a>
       <!-- <a role="link" aria-disabled="true" class="back-to-top back-to-top--hidden"></a> -->
 
       <section class="popup" id="call-popup">
-        <form action="source/phpmailer/mail.php" method="POST" class="popup__form form">
+        <form action="source/phpmailer/telegram.php" method="POST" id="form-callback" class="popup__form form">
           <button class="form__close">
             <div><span class="visually-hidden">Закрыть</span></div>
           </button>
@@ -314,7 +315,7 @@
             </div>
             <div class="form__field">
               <label class="form__label" for="phone">Телефон:</label>
-              <input type="tel" id="phone" name="phone" pattern="[0-9]+{10,12}" placeholder="8911-111-1111" minlength="10" maxlength="40" required>
+              <input class="required phone" type="tel" id="phone" name="phone" pattern="[0-9]+{10,12}" placeholder="8911-111-1111" minlength="10" maxlength="40" required>
             </div>
             <div class="form__field form__field--select">
               <label class="form__label" for="time">Удобное время</label>
