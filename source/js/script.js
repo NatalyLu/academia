@@ -135,11 +135,12 @@ if (document.documentElement.clientWidth > 768) {
 }
 
 //---------- Работа с попапом ----------//
+// Открытие/закрытие формы
 (function () {
   let html = document.getElementById("html");
   let activeElement = document.getElementById("call-popup");
   let closeButton = activeElement.querySelector(".form__close");
-  let targetItems = document.querySelectorAll(".contact-us__button");
+  let targetItems = document.querySelectorAll(".button-callback");
 
   let closePopupKeyDown = (evt) => {
     if (evt.keyCode === window.util.ENTER_KEYCODE) {
@@ -186,4 +187,53 @@ if (document.documentElement.clientWidth > 768) {
       }
     });
   });
+})();
+
+// Обработка формы
+(function () {
+  let form = document.getElementById("form-callback");
+
+  let addError = (input) => {
+    input.parentElement.classList.add("error");
+    // input.classList.add("error");
+  }
+
+  let removeError = (input) => {
+    input.parentElement.classList.remove("error");
+    // input.classList.remove("error");
+  }
+
+  let checkPhone = (input) => {
+    return /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/.test(input.value);
+    // /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
+    // /^\d[\d\(\)\ -]{4,14}\d$/
+  }
+
+  let checkValidate = (form) => {
+    let  formReq = form.querySelectorAll(".required");
+    // let error = 0;
+
+    [].slice.call(formReq).forEach(item => {
+      removeError(item);
+
+      if (item.classList.contains("phone")) {
+        if (!checkPhone(item)) {
+          addError(item);
+
+          // error++;
+        }
+      }
+    });
+    // return(error);
+  }
+
+  let sendFormData = (evt) => {
+    evt.preventDefault();
+    checkValidate(form);
+  }
+
+  form.addEventListener("submit", (evt) => {
+    sendFormData(evt);
+  });
+
 })();

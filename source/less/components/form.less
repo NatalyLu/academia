@@ -154,6 +154,27 @@
       border-color: @dark-text-color;
     }
   }
+
+  &.error {
+    position: relative;
+    &:after {
+      content: "Неверный формат номера, пример 8900 000 0000";
+      position: absolute;
+      width: 100%;
+      height: auto;
+      bottom: 0;
+      left: 0;
+      transform: translate(0, 100%);
+      padding: 10px;
+      border: 1px solid rgb(122, 122, 122);
+      color: @dark-text-color;
+      background-color: rgb(223, 221, 221);
+    }
+    input{
+      border-color: rgba(red, .5);
+      box-shadow: 0 0 15px red;
+    }
+  }
 }
 
 .form__field--select {
