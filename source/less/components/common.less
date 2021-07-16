@@ -95,8 +95,20 @@ body {
   100% { transform: rotate(-360deg); }
 }
 
-//
+// HORIZONTAL MOVE
 @keyframes moveclouds {
   0% { margin-left: 1000px; }
   100% { margin-left: -1000px; }
+}
+
+// ROTATION ANIMATION
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes trambling {
+  0%, 50%, 100% { transform: rotate(0deg) scale(1); }
+  10%, 30% { transform: rotate(-2deg) scale(1.05); }
+  20%, 40% { transform: rotate(2deg) scale(1.05); }
 }
