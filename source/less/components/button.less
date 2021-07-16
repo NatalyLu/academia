@@ -1,0 +1,79 @@
+.button {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: @dark-text-color;
+  color: @lite-warm;
+  border: none;
+  box-shadow: 0 7px 10px 0 rgba(@dark-text-color, .5);
+  border-radius: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  top: 0;
+  overflow: hidden;
+  transition: .3s;
+  z-index: 0;
+
+  @media (min-width: @tablet-width) {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    min-width: 240px;
+  }
+
+  &:after {
+    position: absolute;
+    transition: .3s;
+    content: '';
+    width: 0;
+    height: 130%;
+    left: -10%;
+    bottom: 0;
+    background: @lite-warm;
+    transform: skewX(15deg);
+    z-index: -1;
+  }
+
+  &:before {
+    content: "";
+    margin-left: 60px;
+    width: 30px;
+    height: 300px;
+    background: linear-gradient(to left, transparent, #fff , transparent );
+    position: absolute;
+    left: -150px;
+    top: -120px;
+    transform: rotate(-45deg);
+    opacity: .6;
+
+    animation-name: slideme;
+    animation-delay: 3s;
+    animation-timing-function: ease-in-out;
+    transition: all .1s;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: @dark-text-color;
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      width: 150%;
+    }
+  }
+
+  &:hover {
+    top: 2px;
+  }
+
+  &:focus {
+    top: 4px;
+  }
+}
