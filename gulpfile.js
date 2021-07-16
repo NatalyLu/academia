@@ -13,6 +13,7 @@ const htmlmin = require("gulp-htmlmin");
 const terser = require("gulp-terser-js");
 const sync = require("browser-sync").create();
 const del= require('del');
+const concat = require('gulp-concat');
 
 // HTML
 
@@ -45,7 +46,9 @@ exports.styles = styles;
 // Scripts
 
 const scripts = () => {
-  return gulp.src("source/js/script.js")
+  return gulp.src("source/js/*.js")
+    .pipe(concat("script.js"))
+    .pipe(gulp.dest("build/js/"))
     .pipe(terser({
       mangle: {
         toplevel: true
@@ -111,7 +114,7 @@ const copy = (done) => {
   gulp.src([
     "source/*.{xml,png,ico,svg,webmanifest}",
     "source/img/**/*.{jpg,png,svg}",
-    "source/js/script.js",
+    // "source/js/script.js",
     "source/js/jquery/jquery-3.6.0.min.js",
     "source/phpmailer/*",
   ], {

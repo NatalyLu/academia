@@ -4,13 +4,15 @@
   position: relative;
   width: 100%;
   max-width: 500px;
+  max-height: 90vh;
   margin: 10px 10px 0 10px;
   padding: 40px 30px;
   border-radius: 10px;
   box-sizing: border-box;
   background-color: @theme-color;
-  max-height: 90vh;
+  box-shadow: 0 10px 20px -6px @dark-text-color;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     width: 0;
     height: 0;
@@ -21,7 +23,7 @@
     padding: 60px;
   }
 
-  .contact-us__button {
+  .button {
     align-self: center;
     display: flex;
     align-items: center;
@@ -102,6 +104,20 @@
   }
 }
 
+.form__description {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  margin: 0;
+
+  @media (min-width: @tablet-width) {
+    font-size: 1.6rem;
+    line-height: 3rem;
+  }
+}
+
 .form__wrapper {
   margin-bottom: 40px;
 
@@ -157,22 +173,35 @@
 
   &.error {
     position: relative;
+
     &:after {
       content: "Неверный формат номера, пример 8900 000 0000";
+      font-size: 1.4rem;
+      line-height: 2.1rem;
       position: absolute;
       width: 100%;
       height: auto;
+      padding: 10px 25px;
+      box-sizing: border-box;
       bottom: 0;
       left: 0;
-      transform: translate(0, 100%);
-      padding: 10px;
-      border: 1px solid rgb(122, 122, 122);
-      color: @dark-text-color;
-      background-color: rgb(223, 221, 221);
+      transform: translate(0,100%);
+      border-radius: 10px;
+      border: 1px solid #7a7a7a;
+      color: #2f1f18;
+      background-color: #efecec;
+
+      z-index: 1010;
+
+      @media (min-width: @tablet-width) {
+        font-size: 1.6rem;
+      }
     }
+
     input{
       border-color: rgba(red, .5);
       box-shadow: 0 0 15px red;
+      animation: 1.5s ease-in-out trambling;
     }
   }
 }
@@ -211,5 +240,17 @@
 
   @media (min-width: @tablet-width) {
     padding-bottom: 20px;
+  }
+}
+
+.form__first-page.close{
+  display: none;
+}
+
+.form__second-page {
+  display: none;
+
+  &.open {
+    display: block;
   }
 }
