@@ -3,19 +3,16 @@
   flex-direction: column;
   justify-content: center;
   max-width: @container-max-width;
-  margin: auto;
-  margin-bottom: @vertical-indent-mobile;
-  padding: @vertical-indent-mobile @horizontal-indent 0 @horizontal-indent;
+  margin: 0 auto;
+  padding: @vertical-indent-mobile @horizontal-indent @vertical-indent-mobile-bottom @horizontal-indent;
 
   @media (min-width: @tablet-width) {
     padding-top: @vertical-indent-tablet;
-    margin-bottom: @vertical-indent-tablet;
+    padding-bottom: @vertical-indent-tablet-bottom;
   }
 
   @media (min-width: @desktop-width) {
-    margin-bottom: @vertical-indent-desktop;
-    padding: 0;
-    padding-top: @vertical-indent-desktop;
+    padding: @vertical-indent-desktop 0 @vertical-indent-desktop-bottom 0;
   }
 }
 
