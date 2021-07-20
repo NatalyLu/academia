@@ -44,7 +44,7 @@
         .underline__hover();
       }
 
-      .logo__svg {
+      .logo__img {
         animation-play-state: paused;
       }
 
@@ -100,6 +100,7 @@
   @media (max-width: @tablet-width - .02px) {
     transform: translate(0%) scaleX(1);
     opacity: 1;
+    z-index: 900;
   }
 }
 
@@ -157,6 +158,7 @@
 .nav__menu-btn {
   right: 15px;
   cursor: pointer;
+  z-index: 901;
 
   &.menu-btn--active {
     top: -20px;
