@@ -12,8 +12,10 @@ const svgstore = require("gulp-svgstore");
 const htmlmin = require("gulp-htmlmin");
 const terser = require("gulp-terser-js");
 const sync = require("browser-sync").create();
-const del= require('del');
-const concat = require('gulp-concat');
+const del= require("del");
+const concat = require("gulp-concat");
+const order = require("gulp-order");
+const avif = require('gulp-avif');
 
 // HTML
 
@@ -47,6 +49,10 @@ exports.styles = styles;
 
 const scripts = () => {
   return gulp.src("source/js/*.js")
+    .pipe(order([
+      "_*.js",
+      "*.js",
+    ]))
     .pipe(concat("script.js"))
     .pipe(gulp.dest("build/js/"))
     .pipe(terser({
@@ -78,27 +84,30 @@ const optimizeImages = () => {
 
 exports.optimizeImages = optimizeImages;
 
-const copyImages = () => {
-  return gulp.src("source/img/**/*.{jpg,png,svg}")
-  .pipe(gulp.dest("build/img"))
-};
-
-exports.copyImages = copyImages;
-
 // WebP
 
 const createWebp = () => {
   return gulp.src("source/img/**/*.{jpg,png}")
-  .pipe(webp({quality: 90}))
+  .pipe(webp({quality: 80}))
   .pipe(gulp.dest("build/img"))
 };
 
 exports.createWebp = createWebp;
 
+// Avif
+
+const createAvif = () => {
+  return gulp.src('source/img/**/*.{png,jpg}')
+  .pipe(avif({quality: 80}))
+  .pipe(gulp.dest('build/img'));
+};
+
+exports.createAvif = createAvif;
+
 // Sprite
 
 const sprite = () => {
-return gulp.src("source/img/svg/*.svg")
+return gulp.src("source/img/sprite/*.svg")
 .pipe(svgstore({
   inlineSvg: true
 }))
@@ -113,10 +122,12 @@ exports.sprite = sprite;
 const copy = (done) => {
   gulp.src([
     "source/*.{xml,png,ico,svg,webmanifest}",
-    "source/img/**/*.{jpg,png,svg}",
-    // "source/js/script.js",
+    "source/img/**/*.{jpg,png}",
+    "source/img/svg/*.svg",
     "source/js/jquery/jquery-3.6.0.min.js",
+    "source/js/slick/*.js",
     "source/phpmailer/*",
+    "source/css/slick.min.css"
   ], {
     base: "source"
   })
@@ -173,9 +184,10 @@ const build = gulp.series(
   gulp.parallel(
     styles,
     html,
-    scripts,
     sprite,
-    createWebp
+    scripts,
+    createWebp,
+    createAvif
   ),
 );
 
@@ -186,13 +198,13 @@ exports.build = build;
 exports.default = gulp.series(
   clean,
   copy,
-  copyImages,
   gulp.parallel(
     styles,
     html,
     scripts,
     sprite,
-    createWebp
+    createWebp,
+    createAvif
   ),
   gulp.series(
     server,
