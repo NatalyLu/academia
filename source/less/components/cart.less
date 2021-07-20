@@ -15,7 +15,12 @@
 .cart-front {
   align-items: center;
   position: relative;
-  background: no-repeat url("./../img/books.jpg") bottom;
+  background-image: image-set(
+    url("./../img/books.jpg") 1x,
+    url("./../img/books@2x.jpg") 2x,
+  );
+  background-repeat: no-repeat;
+  background-position: bottom;
   background-size: 80%;
   z-index: 1;
   display: grid;
