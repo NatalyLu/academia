@@ -107,7 +107,7 @@ exports.createAvif = createAvif;
 // Sprite
 
 const sprite = () => {
-return gulp.src("source/img/svg/*.svg")
+return gulp.src("source/img/sprite/*.svg")
 .pipe(svgstore({
   inlineSvg: true
 }))
@@ -123,6 +123,7 @@ const copy = (done) => {
   gulp.src([
     "source/*.{xml,png,ico,svg,webmanifest}",
     "source/img/**/*.{jpg,png}",
+    "source/img/svg/*.svg",
     "source/js/jquery/jquery-3.6.0.min.js",
     "source/js/slick/*.js",
     "source/phpmailer/*",
