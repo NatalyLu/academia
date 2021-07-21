@@ -28,7 +28,7 @@
   //   $message = "Success";
   // }
 
-  $response = ['message' => $message];
-  header("Content-type: application/json");
-  echo json_encode($response);
+  // $response = ['message' => $message];
+  // header("Content-type: application/json");
+  // echo json_encode($response);
 ?>

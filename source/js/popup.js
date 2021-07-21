@@ -108,9 +108,9 @@
       activeElement.classList.add("sending");
 
       let response = async () => {
-        await fetch(action, {
+        await fetch(form.getAttribute("action"), {
           method: form.getAttribute("method"),
-          body: form.getAttribute("action")
+          body: formData
         });
       }
 
@@ -123,6 +123,8 @@
         firstPage.classList.add("close");
         secondPage.classList.add("open");
       } else {
+        // Чистим форму
+        form.reset();
         // Убираем картинку загрузки
         activeElement.classList.remove("sending");
         // Меняем контент на второй странице
