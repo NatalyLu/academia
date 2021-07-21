@@ -1,19 +1,22 @@
 $(document).ready(function(){
   $('.slider').slick({
-    speed: 500,
+    speed: 700,
     fade: true,
     easing: 'ease',
-    dots: true,
+    dots: false,
     adaptiveHeight: true,
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: true,
     pauseOnFocus: true,
+    arrows: true,
     responsive: [
       {
-        breakpoint: 800,
+        breakpoint: 768,
         settings: {
+          arrows: false,
           autoplay: false,
+          dots: true,
         }
       },
     ],
