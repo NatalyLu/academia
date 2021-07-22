@@ -107,7 +107,6 @@
   let sendFormData = (evt) => {
     evt.preventDefault();
     let errors = checkValidate(form);
-    let formData = new FormData(form);
 
     // Если нет ошибок при заполнении и отправка прошла успешно(файл telegram.php вернет успешный ответ),
     // то очистим форму, закроем её и выведем сообщение об успешной отправке
@@ -118,7 +117,7 @@
       let response = async () => {
         await fetch(form.getAttribute("action"), {
           method: form.getAttribute("method"),
-          body: formData
+          body: new FormData(form)
         });
       }
 
