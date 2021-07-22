@@ -111,11 +111,6 @@
   font-size: 1.4rem;
   line-height: 2rem;
   margin: 0;
-
-  @media (min-width: @tablet-width) {
-    font-size: 1.6rem;
-    line-height: 3rem;
-  }
 }
 
 .form__wrapper {
@@ -175,19 +170,19 @@
     position: relative;
 
     &:after {
-      content: "Неверный формат номера, пример 8900 000 0000";
-      font-size: 1.4rem;
-      line-height: 2.1rem;
+      content: "";
+      font-size: 1rem;
+      line-height: 1.6rem;
       position: absolute;
       width: 100%;
       height: auto;
-      padding: 10px 25px;
+      padding: 12px;
       box-sizing: border-box;
       bottom: 0;
       left: 0;
       transform: translate(0,100%);
       border-radius: 10px;
-      border: 1px solid #7a7a7a;
+      border: 2px solid #2f1f18;
       color: #2f1f18;
       background-color: #efecec;
 
@@ -195,6 +190,8 @@
 
       @media (min-width: @tablet-width) {
         font-size: 1.6rem;
+        line-height: 2.5rem;
+        padding: 10px 25px;
       }
     }
 
@@ -203,6 +200,14 @@
       box-shadow: 0 0 15px red;
       animation: 1.5s ease-in-out trambling;
     }
+  }
+
+  &.field-name.error:after {
+    content: "Введены запрещенные символы. Пример: Иванов Иван";
+  }
+
+  &.field-phone.error:after {
+    content: "Неверный формат номера. Пример: 8900 000 0000";
   }
 }
 
