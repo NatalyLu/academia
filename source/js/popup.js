@@ -8,7 +8,6 @@
   let fields = form.querySelectorAll(".form__field");
   let firstPage = form.querySelector(".form__first-page");
   let secondPage = form.querySelector(".form__second-page");
-  // let errorPage = activeElement.querySelector(".error-page");
 
   // ************************
   // Открытие/закрытие формы
@@ -77,20 +76,29 @@
   }
 
   let checkPhone = (input) => {
-    return /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/.test(input.value);
-    // /^\d[\d\(\)\ -]{4,14}\d$/
+    return ((input.value !== "") && (/^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/.test(input.value)));
+  }
+
+  let checkTextInput = (input) => {
+    return ((input.value == "") || (/([а-я]+)/ui.test(input.value)));
   }
 
   let checkValidate = (form) => {
-    let formReq = form.querySelectorAll(".required");
+    let formReq = form.querySelectorAll("input");
     let error = 0;
 
     [].slice.call(formReq).forEach(item => {
-      if (item.classList.contains("phone")) {
+      if (item.getAttribute("type") === "tel") {
         if (!checkPhone(item)) {
           addError(item.parentElement);
           error++;
         }
+      } else if (item.getAttribute("type") === "text"){
+        if (!checkTextInput(item)){
+          addError(item.parentElement);
+          error++;
+        }
+
       }
     });
     return(error);
