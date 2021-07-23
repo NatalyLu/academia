@@ -68,10 +68,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: @vertical-indent-mobile @horizontal-indent @vertical-indent-mobile-bottom @horizontal-indent;
+  padding: @vertical-indent-mobile @horizontal-indent;
 
   @media (min-width: @tablet-width) {
-    padding: @vertical-indent-tablet @horizontal-indent @vertical-indent-tablet-bottom @horizontal-indent;
+    padding: @vertical-indent-tablet @horizontal-indent;
   }
 
   @media (min-width: @small-desktop-width) {
@@ -82,7 +82,7 @@
   }
 
   @media (min-width: @desktop-width) {
-    padding: @vertical-indent-desktop @horizontal-indent @vertical-indent-desktop-bottom @horizontal-indent;
+    padding: @vertical-indent-desktop @horizontal-indent;
   }
 
   .sub-title {
@@ -103,7 +103,6 @@
   max-width: @container-max-width;
   box-sizing: border-box;
   display: block;
-  margin-bottom: 60px;
 
   @media (max-width: @tablet-width - .02px) {
     font-size: 1.4rem;
