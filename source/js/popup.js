@@ -104,7 +104,7 @@
     return(error);
   }
 
-  let sendFormData = (evt) => {
+  let sendFormData = async (evt) => {
     evt.preventDefault();
     let errors = checkValidate(form);
 
@@ -114,12 +114,10 @@
       // Если отправка будет занимать какое-то время, то выведем изображение загрузки
       activeElement.classList.add("sending");
 
-      let response = async () => {
-        await fetch(form.getAttribute("action"), {
-          method: form.getAttribute("method"),
-          body: new FormData(form)
-        });
-      }
+      let response = await fetch(form.getAttribute("action"), {
+        method: form.getAttribute("method"),
+        body: new FormData(form)
+      });
 
       if (response.ok) {
         // Чистим форму
