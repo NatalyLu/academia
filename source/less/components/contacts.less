@@ -1,13 +1,13 @@
 .contacts {
   display: flex;
-  padding: @vertical-indent-mobile @horizontal-indent @vertical-indent-mobile-bottom @horizontal-indent;
+  padding: @vertical-indent-mobile @horizontal-indent;
 
   @media (min-width: @tablet-width) {
-    padding: @vertical-indent-tablet @horizontal-indent @vertical-indent-tablet-bottom @horizontal-indent;
+    padding: @vertical-indent-tablet @horizontal-indent;
   }
 
   @media (min-width: @desktop-width) {
-    padding: @vertical-indent-desktop @horizontal-indent @vertical-indent-desktop-bottom @horizontal-indent;
+    padding: @vertical-indent-desktop @horizontal-indent;
   }
 }
 
@@ -82,7 +82,6 @@
   gap: 40px;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(440px, max-content));
-  margin-bottom: 60px;
 
   a {
     display: block;
@@ -91,6 +90,7 @@
     text-decoration: none;
     color: inherit;
     .underline();
+    cursor: pointer;
 
     &:hover,
     &:active,

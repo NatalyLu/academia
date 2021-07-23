@@ -19,16 +19,5 @@
   };
 
   $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
-
-  // if ($sendToTelegram) {
-  //   // header('Location: thank-you.html');
-  //   $message = "Error";
-  // } else {
-  //   // echo "Error";
-  //   $message = "Success";
-  // }
-
-  // $response = ['message' => $message];
-  // header("Content-type: application/json");
-  // echo json_encode($response);
+  return($sendToTelegram);
 ?>

@@ -1,0 +1,57 @@
+.phone {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 20px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 0 @dark-text-color;
+  background-color: @dark-text-color;
+  z-index: 1000;
+  outline: none;
+  transition: all ease-in-out .2s;
+
+  @media (min-width: @tablet-width) {
+    right: 5vw;
+    bottom: 40px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    margin: 0;
+    left: -10px;
+    right: -10px;
+    top: -10px;
+    bottom: -10px;
+    border: 1px solid @dark-text-color;
+    border-radius: 100%;
+    animation: pulse 2.2s linear infinite;
+  }
+
+  &:after {
+    animation-delay: 0.4s;
+  }
+
+  &:hover,
+  &:focus {
+    filter: brightness(1.5);
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    transition: all ease-in-out .2s;
+
+    svg {
+      animation-play-state: paused;
+    }
+  }
+
+  svg {
+    animation: jiggle 6s ease-in-out infinite;
+  }
+}
