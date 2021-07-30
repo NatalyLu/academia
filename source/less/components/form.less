@@ -139,6 +139,7 @@
   }
 
   input,
+  textarea,
   .form__select {
     font-size: 1.4rem;
     line-height: 2rem;
@@ -152,7 +153,7 @@
 
     @media (min-width: @tablet-width) {
       font-size: 1.6rem;
-      line-height: 1.8rem;
+      line-height: 2.1rem;
       padding: 25px;
     }
 
@@ -167,21 +168,26 @@
     }
   }
 
+  textarea {
+    resize: none;
+    text-align: left;
+  }
+
   &.error {
     position: relative;
 
-    &:after {
+    &:before {
       content: "";
       font-size: 1rem;
       line-height: 1.6rem;
       position: absolute;
-      width: 100%;
+      width: 90%;
       height: auto;
       padding: 12px;
       box-sizing: border-box;
-      bottom: 0;
-      left: 0;
-      transform: translate(0,100%);
+      bottom: -4px;
+      left: 50%;
+      transform: translate(-50%,100%);
       border-radius: 10px;
       border: 2px solid #2f1f18;
       color: #2f1f18;
@@ -192,23 +198,42 @@
       @media (min-width: @tablet-width) {
         font-size: 1.6rem;
         line-height: 2.5rem;
-        padding: 10px 25px;
+        padding: 15px 25px;
       }
     }
 
-    input{
+    &:after {
+      content: "";
+      width: 11px;
+      height: 11px;
+      background-color: #efecec;
+      left: 10%;
+      bottom: -11px;
+      position: absolute;
+      border-left: 2px solid #2f1f18;
+      border-top: 2px solid #2f1f18;
+      transform: rotate(45deg);
+      z-index: 1011;
+    }
+
+    input,
+    textarea {
       border-color: rgba(red, .5);
       box-shadow: 0 0 15px red;
       animation: 1.5s ease-in-out trambling;
     }
   }
 
-  &.field-name.error:after {
+  &.form__field--name.error:before {
     content: "Введены запрещенные символы. Пример: Иванов Иван";
   }
 
-  &.field-phone.error:after {
+  &.form__field--phone.error:before {
     content: "Неверный формат номера. Пример: 8900 000 0000";
+  }
+
+  &.form__field--comment.error:before {
+    content: "Допустимы символы только русского алфавита";
   }
 }
 
