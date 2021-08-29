@@ -1,4 +1,3 @@
-//---------- Кнопка "Наверх" ----------//
 (function () {
   let btnToTop = document.querySelector(".back-to-top");
   window.onscroll = () => {
