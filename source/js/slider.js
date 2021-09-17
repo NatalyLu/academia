@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.slider').slick({
+  $('#slider').slick({
     speed: 700,
     fade: true,
     easing: 'ease',
@@ -21,4 +21,34 @@ $(document).ready(function(){
       },
     ],
   });
+});
+
+$('#slider-office').slick({
+  speed: 700,
+  centerMode: true,
+  centerPadding: '60px',
+  // autoplay: true,
+  // autoplaySpeed: 2000,
+  lazyLoad: 'ondemand',
+  arrows: false,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  responsive: [
+    // {
+    //   breakpoint: 768,
+    //   settings: {
+    //     arrows: false,
+    //     centerMode: true,
+    //     centerPadding: '20px',
+    //     slidesToShow: 3
+    //   }
+    // },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        slidesToShow: 1
+      }
+    }
+  ]
 });
