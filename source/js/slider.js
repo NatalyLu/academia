@@ -23,32 +23,22 @@ $(document).ready(function(){
   });
 });
 
-$('#slider-office').slick({
-  speed: 700,
-  centerMode: true,
-  centerPadding: '60px',
-  // autoplay: true,
-  // autoplaySpeed: 2000,
-  lazyLoad: 'ondemand',
-  arrows: false,
+$('#office-slider').slick({
+  dots: true,
+  arrows: true,
+  autoplay: true,
+  infinite: true,
   slidesToShow: 3,
-  slidesToScroll: 1,
+  slidesToScroll: 3,
   responsive: [
-    // {
-    //   breakpoint: 768,
-    //   settings: {
-    //     arrows: false,
-    //     centerMode: true,
-    //     centerPadding: '20px',
-    //     slidesToShow: 3
-    //   }
-    // },
     {
-      breakpoint: 480,
+      breakpoint: 768,
       settings: {
         arrows: false,
-        slidesToShow: 1
+        autoplay: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
       }
-    }
-  ]
+    },
+  ],
 });
