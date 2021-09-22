@@ -18,17 +18,15 @@ const order = require("gulp-order");
 const avif = require('gulp-avif');
 
 // HTML
-
 const html = () => {
   return gulp.src("source/**/*.html")
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest("build"));
 };
-
 exports.html = html;
 
-// Styles
 
+// Styles
 const styles = () => {
   return gulp.src("source/less/style.less")
   .pipe(plumber())
@@ -42,11 +40,10 @@ const styles = () => {
   .pipe(gulp.dest("build/css"))
   .pipe(sync.stream());
 };
-
 exports.styles = styles;
 
-// Scripts
 
+// Scripts
 const scripts = () => {
   return gulp.src("source/js/*.js")
     .pipe(order([
@@ -67,11 +64,10 @@ const scripts = () => {
     .pipe(gulp.dest("build/js"))
     .pipe(sync.stream());
 }
-
 exports.scripts = scripts;
 
-// Images
 
+// Images
 const optimizeImages = () => {
   return gulp.src("source/img/**/*.{jpg,png,svg}")
   .pipe(imagemin([
@@ -81,31 +77,28 @@ const optimizeImages = () => {
   ]))
   .pipe(gulp.dest("build/img"))
 };
-
 exports.optimizeImages = optimizeImages;
 
-// WebP
 
+// WebP
 const createWebp = () => {
   return gulp.src("source/img/**/*.{jpg,png}")
   .pipe(webp({quality: 80}))
   .pipe(gulp.dest("build/img"))
 };
-
 exports.createWebp = createWebp;
 
-// Avif
 
+// Avif
 const createAvif = () => {
   return gulp.src('source/img/**/*.{png,jpg}')
   .pipe(avif({quality: 80}))
   .pipe(gulp.dest('build/img'));
 };
-
 exports.createAvif = createAvif;
 
-// Sprite
 
+// Sprite
 const sprite = () => {
 return gulp.src("source/img/sprite/*.svg")
 .pipe(svgstore({
@@ -114,11 +107,10 @@ return gulp.src("source/img/sprite/*.svg")
 .pipe(rename("sprite.svg"))
 .pipe(gulp.dest("build/img/svg/"));
 };
-
 exports.sprite = sprite;
 
-// Copy
 
+// Copy
 const copy = (done) => {
   gulp.src([
     "source/*.{xml,png,ico,svg,webmanifest}",
@@ -134,11 +126,25 @@ const copy = (done) => {
   .pipe(gulp.dest("build"))
   done();
 };
-
 exports.copy = copy;
 
-// Server
 
+// SimpleCopy
+const simpleCopy = (done) => {
+  gulp.src([
+    "source/js/jquery/jquery-3.6.0.min.js",
+    "source/js/slick/*.js",
+    "source/css/slick.min.css"
+  ], {
+    base: "source"
+  })
+  .pipe(gulp.dest("build"))
+  done();
+};
+exports.simpleCopy = simpleCopy;
+
+
+// Server
 const server = (done) => {
   sync.init({
     server: {
@@ -150,33 +156,38 @@ const server = (done) => {
   });
   done();
 };
-
 exports.server = server;
 
-// Reload
 
+// Reload
 const reload = done => {
   sync.reload();
   done();
 };
 
-// Watcher
 
+// Watcher
 const watcher = () => {
   gulp.watch("source/less/**/*.less", gulp.series(styles));
   gulp.watch("source/*.html", gulp.series(html, reload));
 };
 
-// Clean
 
+// Clean
 const clean = () => {
   return del("build");
 };
-
 exports.clean = clean;
 
-// Build
 
+// simpleClean
+const simpleClean = () => {
+  return del(["build/css", "build/js", "build/index.html"]);
+}
+exports.clean = simpleClean;
+
+
+// Build
 const build = gulp.series(
   clean,
   copy,
@@ -190,21 +201,17 @@ const build = gulp.series(
     createAvif
   ),
 );
-
 exports.build = build;
 
-// Default
 
+// Default
 exports.default = gulp.series(
-  clean,
-  copy,
+  simpleClean,
+  simpleCopy,
   gulp.parallel(
     styles,
     html,
     scripts,
-    sprite,
-    createWebp,
-    createAvif
   ),
   gulp.series(
     server,
