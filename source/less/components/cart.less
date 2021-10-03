@@ -5,7 +5,7 @@
   left: 0;
   bottom: 0;
   max-height: 95%;
-  padding: 40px 15px 70px 15px;
+  padding: 40px 10px 70px 10px;
   box-shadow: 0 10px 20px -6px @dark-text-color;
   box-sizing: border-box;
   transition: .7s;
@@ -40,12 +40,15 @@
   }
 
   &:after {
-    content: "*Цена указана за месяц обучения";
+    content: "*Цена указана за месяц обучения (длительность занятия - 90 минут)";
     font-size: .7rem;
-    width: 100%;
+    line-height: 1.2rem;
+    text-align: center;
+    width: 75%;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }
 

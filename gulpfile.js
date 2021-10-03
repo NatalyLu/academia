@@ -113,7 +113,7 @@ exports.sprite = sprite;
 // Copy
 const copy = (done) => {
   gulp.src([
-    "source/*.{xml,png,ico,svg,webmanifest}",
+    "source/*.{xml,png,ico,svg,webmanifest,pdf}",
     "source/img/**/*.{jpg,png}",
     "source/img/svg/*.svg",
     "source/js/jquery/jquery-3.6.0.min.js",
