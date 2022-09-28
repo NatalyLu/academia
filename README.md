@@ -1,9 +1,9 @@
 # Description
 
-Training Center landing with many animated elements and anchor links.
+Training Center adaptive landing with a rubber layout, many animated elements, anchor links and modals.
 
 <img src="https://user-images.githubusercontent.com/45073400/192635797-7a46a185-1b6c-4b83-98b6-b28dbb5c2bfa.gif" width="600" height="320" >
-
+ 
 
 # Quick start
 
